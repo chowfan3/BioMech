@@ -1,0 +1,202 @@
+body {
+  background-color: #0d1b2a;
+  color: #e0e1dd;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #ff9f1c;
+  color: #0d1b2a;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+main,
+header,
+footer {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 3.5rem;
+  color: #00a6fb;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+header p {
+  text-align: center;
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #e0e1dd;
+}
+
+h2 {
+  font-size: 2.25rem;
+  color: #00a6fb;
+  padding-bottom: 10px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #00a6fb;
+}
+
+a {
+  color: #ff9f1c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.card img {
+  width: 100%;
+  height: 325px; /* Set a fixed, taller height */
+  display: block;
+  border-radius: 8px 8px 0 0;
+  object-fit: cover; /* This is key: it scales the image to fill the container */
+  object-position: center; /* Ensures the crop is centered */
+}
+
+footer {
+  text-align: center;
+  margin-top: 60px;
+  border-top: 1px solid #e0e1dd;
+  padding-top: 20px;
+}
+
+.copyright {
+  font-size: 0.875rem;
+  color: #e0e1dd;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  text-align: center;
+  margin-top: 20px;
+  background-color: rgba(0, 166, 251, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+nav a {
+  color: #e0e1dd;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3rem;
+  margin: 0 25px;
+}
+
+nav a:hover {
+  color: #ff9f1c;
+  text-decoration: none;
+}
+
+.athlete-profiles {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.card {
+  background-color: #1d2d3d;
+  border: 2px solid #00a6fb;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    border-color 0.3s ease-in-out;
+  flex: 1 1 220px;
+  max-width: 250px;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 166, 251, 0.2);
+  border-color: #ff9f1c;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
+  margin-top: 0;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  background-color: #ff9f1c;
+  color: #0d1b2a;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 10px;
+  box-sizing: border-box;
+  text-align: center; /
+}
+
+.button:hover {
+  background-color: #e0e1dd;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  body {
+    padding: 10px;
+  }
+}
+
+#science img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 30px auto;
+  border-radius: 8px;
+}
