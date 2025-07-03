@@ -3,155 +3,199 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://glitch.com/favicon.ico" />
-    <title>BioMech</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Orbitron:wght@700&family=Poppins:wght@400&display=swap"
-      rel="stylesheet"
-    />
+    <title>BioMech: The Science of Athletic Performance</title>
+    <meta name="description" content="Explore the science and biotechnology behind the world's greatest athletes. A project by a future bioengineering major.">
+    <link rel="icon" href="images/BioMechLogo.png" />
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Skip to Main Content</a>
 
-    <header>
-      <h1>BioMech</h1>
-      <p>Peak Performance, Deconstructed.</p>
-      <nav aria-label="Main navigation">
-        <a href="#profiles" aria-label="Jump to Athlete Profiles section"
-          >Profiles</a
-        >
-        <a href="#science" aria-label="Jump to The Science section"
-          >The Science</a
-        >
-        <a href="#about" aria-label="Jump to the About This Project section"
-          >About</a
-        >
-      </nav>
-    </header>
+    <!-- Navigation Bar -->
+    <nav>
+      <a href="index.html" class="nav-brand">
+        <img src="images/BioMechLogo.png" alt="BioMech Logo" class="logo-image">
+        <span class="logo-text">BioMech</span>
+      </a>
+      <div class="nav-links">
+        <div class="dropdown">
+          <a href="#profiles" class="nav-link">Profiles</a>
+          <div class="dropdown-content">
+            <a href="lebron.html">LeBron James</a>
+            <a href="serena.html">Serena Williams</a>
+            <a href="ronaldo.html">Cristiano Ronaldo</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="#science" class="nav-link">The Science</a>
+          <div class="dropdown-content">
+            <a href="#genetics">Genetics</a>
+            <a href="#muscles">How Muscles Work</a>
+            <a href="#fibers">Muscle Fibers</a>
+            <a href="#gene-editing">Gene Editing</a>
+            <a href="#tissue-engineering">Tissue Engineering</a>
+          </div>
+        </div>
+        <a href="#about" class="nav-link">About</a>
+      </div>
+    </nav>
+    
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Deconstructing the Modern Athlete</h1>
+        <p>Where biology meets design. We explore how bioengineering principles are used to analyze and enhance the world's most elite biological systems.</p>
+      </div>
+      <a href="#profiles" class="scroll-down" aria-label="Scroll down to profiles"></a>
+    </section>
 
-    <main id="main-content">
-      <section id="profiles" class="athlete-profiles-section">
+    <!-- Main Content -->
+    <main class="container">
+      <section id="profiles">
         <h2>Athlete Profiles</h2>
         <div class="athlete-profiles">
-          <div class="card">
-            <!-- Image source restored to your original link -->
-            <img
-              src="https://cdn.glitch.global/e5629da9-2532-4800-bfbf-b122c5ad221d/lebron-james-dunk-besr-quality-ashley-davis.jpg?v=1751350841006"
-              alt="LeBron James mid-air about to dunk a basketball."
-            />
-            <div class="card-content">
-              <h3>LeBron James</h3>
-              <p>
-                A deep dive into the engineering of durability and what it takes
-                to perform at a top level for two decades.
-              </p>
-              <a
-                href="lebron.html"
-                class="button"
-                title="Learn more about LeBron James"
-                >Deconstruct The King
-              </a>
+          <div class="card-container">
+            <div class="card">
+              <div class="card-glow"></div>
+              <img src="https://cdn.glitch.global/e5629da9-2532-4800-bfbf-b122c5ad221d/lebron-james-dunk-besr-quality-ashley-davis.jpg?v=1751350841006" alt="LeBron James mid-air about to dunk a basketball."/>
+              <div class="card-content">
+                <h3>LeBron James</h3>
+                <p>A deep dive into the engineering of durability and what it takes to perform at a top level for two decades.</p>
+                <a href="lebron.html" class="button" title="Learn more about LeBron James">Deconstruct The King</a>
+              </div>
             </div>
           </div>
-
-          <div class="card">
-            <!-- Image source restored to your original link -->
-            <img
-              src="https://cdn.glitch.global/e5629da9-2532-4800-bfbf-b122c5ad221d/GettyImages-1201570937-9374c922b2c5449aaf3a1373d43a0674.jpg?v=1751350833900"
-              alt="Serena Williams in the middle of a powerful tennis serve."
-            />
-            <div class="card-content">
-              <h3>Serena Williams</h3>
-              <p>
-                Analyzing the physics and biomechanics behind the most powerful
-                and dominant serve in the history of tennis.
-              </p>
-              <a
-                href="serena.html"
-                class="button"
-                title="Learn more about Serena Williams"
-                >Analyze The Serve
-              </a>
+          <div class="card-container">
+            <div class="card">
+              <div class="card-glow"></div>
+              <img src="https://cdn.glitch.global/e5629da9-2532-4800-bfbf-b122c5ad221d/GettyImages-1201570937-9374c922b2c5449aaf3a1373d43a0674.jpg?v=1751350833900" alt="Serena Williams in the middle of a powerful tennis serve."/>
+              <div class="card-content">
+                <h3>Serena Williams</h3>
+                <p>Analyzing the physics and biomechanics behind the most powerful and dominant serve in the history of tennis.</p>
+                <a href="serena.html" class="button" title="Learn more about Serena Williams">Analyze The Serve</a>
+              </div>
             </div>
           </div>
-
-          <div class="card">
-            <!-- Image source restored to your original link -->
-            <img
-              src="https://cdn.glitch.global/e5629da9-2532-4800-bfbf-b122c5ad221d/32c16a0aced25bbfc9db8161ab99f547.jpg?v=1751350844754"
-              alt="Cristiano Ronaldo in mid-air, heading a soccer ball."
-            />
-            <div class="card-content">
-              <h3>Cristiano Ronaldo</h3>
-              <p>
-                Exploring the anatomy of a perfect physique and the science
-                behind his legendary aerial leaping ability.
-              </p>
-              <a
-                href="ronaldo.html"
-                class="button"
-                title="Learn more about Cristiano Ronaldo"
-                >Explore The Leap
-              </a>
+          <div class="card-container">
+            <div class="card">
+              <div class="card-glow"></div>
+              <img src="https://cdn.glitch.global/e5629da9-2532-4800-bfbf-b122c5ad221d/32c16a0aced25bbfc9db8161ab99f547.jpg?v=1751350844754" alt="Cristiano Ronaldo in mid-air, heading a soccer ball."/>
+              <div class="card-content">
+                <h3>Cristiano Ronaldo</h3>
+                <p>Exploring the anatomy of a perfect physique and the science behind his legendary aerial leaping ability.</p>
+                <a href="ronaldo.html" class="button" title="Learn more about Cristiano Ronaldo">Explore The Kick</a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <section id="science">
-        <h2>The Science Behind the Sport</h2>
-        <p>
-          Explore the fundamental concepts of biology and technology that power
-          elite athletes.
-        </p>
+        <h2 style="font-size: 2.8rem; margin-bottom: 50px;">The Science Behind the Sport</h2>
+        
+        <!-- Science Sections -->
+        <div id="genetics" class="topic-section">
+          <img src="images/dnastrand.webp" alt="Stylized DNA Helix" class="topic-image">
+          <div class="text-content">
+            <h3>The Genetic Blueprint</h3>
+            <p>Every athlete starts with a unique genetic hand. Genes like ACTN3, for instance, provide the instructions for building powerful, fast-twitch muscle fibers, giving some a natural head start in sprinting. Other genes can influence everything from oxygen efficiency to tendon strength, creating a unique athletic profile before the first day of training.</p>
+          </div>
+        </div>
+        <div class="topic-section image-right">
+          <img src="images/gen_testing.jpg" alt="Futuristic Genetic Analysis Screen" class="topic-image">
+          <div class="text-content">
+            <h3>The Tech: Profiling & Ethics</h3>
+            <p>Modern biotechnology lets us read that genetic blueprint. By analyzing an athlete's DNA, teams can create personalized training and nutrition plans to maximize natural strengths. This powerful tool also opens up complex ethical questions about using gene-editing for an unfair advantage—a major challenge for the future of fair play in sports.</p>
+          </div>
+        </div>
+        <div id="muscles" class="topic-section">
+          <img src="images/sft.png" alt="Diagram of Muscle Contraction with actin and myosin" class="topic-image">
+          <div class="text-content">
+            <h3>How Muscles Work: A Tiny Engine</h3>
+            <p>Think of a muscle as being made of millions of tiny engines. The "Sliding Filament Theory" explains how they work. Inside each muscle fiber, two protein filaments, actin and myosin, are ready for action. Fueled by ATP, the body's energy currency, the myosin filaments grab onto actin and pull, like a microscopic game of tug-of-war. This action, happening trillions of times at once, generates the force for every movement.</p>
+          </div>
+        </div>
+        <div id="fibers" class="topic-section image-right">
+          <img src="images/typesofm.jpeg" alt="Microscopic View of different muscle fibers" class="topic-image">
+          <div class="text-content">
+            <h3>Muscle Fibers: Sprinters vs. Marathoners</h3>
+            <p>Not all muscle "engines" are built the same. Type I, or slow-twitch fibers, are endurance machines; they're efficient and resist fatigue, perfect for long-distance runners. Type II, or fast-twitch fibers, are the opposite: they contract with explosive power but tire out much faster, making them ideal for sprinters and weightlifters. An athlete's genetic code largely determines their natural mix of these fibers.</p>
+          </div>
+        </div>
+        <div id="gene-editing" class="topic-section">
+          <img src="images/cas9.png" alt="Abstract visualization of CRISPR gene editing" class="topic-image">
+          <div class="text-content">
+            <h3>The Future: Engineering the Athlete?</h3>
+            <p>Gene editing technologies like CRISPR are like "molecular scissors" that allow scientists to precisely cut and paste DNA. In medicine, this has the potential to cure genetic diseases. In sports, it could theoretically be used to "edit" an athlete's genes to build stronger muscles or enhance endurance. This is the ultimate frontier of bioengineering, but it also represents the most significant ethical challenge, blurring the line between therapy and enhancement.</p>
+          </div>
+        </div>
 
-        <h3>Topic 1: How Do Muscles Work?</h3>
-        <p>
-          Details about the first topic go here, explaining key concepts and
-          ideas.
-        </p>
-        <img
-          src="https://cdn.glitch.global/e5629da9-2532-4800-bfbf-b122c5ad221d/7a1aa217-3147-4890-81e8-0f2fe49605eb.male-muscular-system-running-on-600nw-2059535423.webp?v=1749002334293"
-          width="900"
-          alt="A detailed anatomical diagram of the human muscular system in motion."
-        />
-        <p>
-          <a
-            href="https://kidshealth.org/en/kids/muscles.html"
-            title="External link to learn about muscle fibers"
-            >Learn More About Muscle Fibers</a
-          >
-        </p>
+        <!-- NEW: Tissue Engineering Section -->
+        <div id="tissue-engineering" class="topic-section image-right">
+            <img src="images/bioprint.jpg" alt="A 3D bioprinter creating a cartilage structure" class="topic-image">
+            <div class="text-content">
+              <h3>The Holy Grail: Tissue Engineering</h3>
+              <p>What if a career-ending injury wasn't the end? Tissue engineering aims to do just that. This field combines cells, engineering, and materials to create functional tissues. For an athlete, this could mean 3D-bioprinting a new piece of cartilage using their own cells, or growing a new ligament on a biodegradable scaffold that dissolves after the new tissue has integrated. It's the ultimate goal of regenerative medicine: building replacement parts for the human body.</p>
+            </div>
+          </div>
 
-        <h3>Topic 2: Tech That Helps Athletes</h3>
-        <p>
-          This section expands on another important topic, providing further
-          insights.
-        </p>
-        <img
-          src="https://cdn.glitch.global/e5629da9-2532-4800-bfbf-b122c5ad221d/3523493e-d653-4488-ae8e-636d29ed5a10.image.png?v=1749014634809"
-          alt="An athlete wearing modern performance-tracking sensors on their body."
-        />
-        <p>
-          <a
-            href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6982823/"
-            title="External link to a scientific source"
-            >Source</a
-          >
-        </p>
+        <!-- Sources Section -->
+        <div class="sources-section">
+          <h3>Sources & Further Reading</h3>
+          <ol class="sources-list">
+            <li>Ahmetov, I. I., & Fedotovskaya, O. N. (2015). Current Progress in Sports Genomics. <em>Advances in clinical chemistry</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4960533/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4960533/</a></li>
+            <li>MacArthur, D. G., & North, K. N. (2005). A gene for speed? The evolution and function of α-actinin-3. <em>BioEssays</em>. Retrieved from <a href="https://pubmed.ncbi.nlm.nih.gov/15666368/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/15666368/</a></li>
+            <li>Sweeney, H. L., & Hammers, D. W. (2018). Muscle Contraction. <em>Cold Spring Harbor perspectives in biology</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5880170/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5880170/</a></li>
+            <li>Plotkin, D. L., et al. (2021). Muscle Fiber Type Transitions with Exercise Training: Shifting Perspectives. <em>Sports (Basel, Switzerland)</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8299832/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8299832/</a></li>
+            <li>Harriss, D. J., et al. (2018). Gene Doping. <em>World Medical Association</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6139884/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6139884/</a></li>
+            <li>O'Brien, F. J. (2011). Biomaterials & scaffolds for tissue engineering. <em>Materials today</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3184333/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3184333/</a></li>
+          </ol>
+        </div>
       </section>
     </main>
 
-    <footer id="about">
-      <h2>About This Project</h2>
-      <p>
-        BioMech is a passion project by a future Bioengineering major, created
-        to explore the science and tech behind the world's greatest athletes.
-      </p>
-      <p class="copyright">© 2025 BioMech</p>
+    <footer id="about" class="container">
+        <h2>About This Project</h2>
+        <p>BioMech is a passion project by a future Bioengineering major. It deconstructs elite athletes not just as players, but as high-performance biological systems, exploring how principles of mechanical engineering, materials science, and biotechnology are applied to push the boundaries of human potential.</p>
+        <p class="copyright">© 2025 BioMech</p>
     </footer>
+
+    <!-- JavaScript for Animations -->
+    <script>
+      // Scroll-in animations
+      const animatedElements = document.querySelectorAll('.topic-section, .sources-section');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      animatedElements.forEach(el => observer.observe(el));
+
+      // 3D card hover effect
+      const cardContainers = document.querySelectorAll('.card-container');
+      cardContainers.forEach(container => {
+        const card = container.querySelector('.card');
+        const glow = card.querySelector('.card-glow');
+        
+        container.addEventListener('mousemove', (e) => {
+          const rect = container.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const rotateY = -1 * ((x - rect.width / 2) / (rect.width / 2)) * 8;
+          const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * 8;
+          
+          card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          glow.style.setProperty('--mouse-x', `${x}px`);
+          glow.style.setProperty('--mouse-y', `${y}px`);
+        });
+
+        container.addEventListener('mouseleave', () => {
+          card.style.transform = 'rotateX(0) rotateY(0)';
+        });
+      });
+    </script>
+
   </body>
 </html>
