@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Genetic Blueprint | BioMech</title>
+    <meta name="description" content="Explore how genetics and specific genes like ACTN3 and ACE influence athletic potential, from explosive power to endurance." />
+    <link rel="icon" href="images/BioMechLogo.png" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+
+    <nav>
+      <a href="index.html" class="nav-brand">
+        <img src="images/BioMechLogo.png" alt="BioMech Logo" class="logo-image">
+        <span class="logo-text">BioMech</span>
+      </a>
+      <div class="nav-links">
+        <div class="dropdown">
+          <a href="index.html#profiles" class="nav-link">Profiles</a>
+          <div class="dropdown-content">
+            <a href="lebron.html">LeBron James</a>
+            <a href="serena.html">Serena Williams</a>
+            <a href="ronaldo.html">Cristiano Ronaldo</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="index.html#science" class="nav-link">The Science</a>
+          <div class="dropdown-content">
+            <a href="genetics.html">Genetics</a>
+            <a href="muscles.html">How Muscles Work</a>
+            <a href="gene-editing.html">Gene Editing</a>
+            <a href="tissue-engineering.html">Tissue Engineering</a>
+            <a href="recovery.html">The Engineering of Recovery</a>
+            <a href="data.html">The Data-Driven Athlete</a>
+          </div>
+        </div>
+        <a href="index.html#about" class="nav-link">About</a>
+      </div>
+    </nav>
+    
+    <header class="article-header-banner" style="--bg-image: url('https://images.unsplash.com/photo-1631556760646-50241850eb25?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dq1C_XDNR4s');">
+      <div class="article-header-content">
+        <h1>The Genetic Blueprint</h1>
+        <p class="article-summary">Every athlete is dealt a unique genetic hand. Explore the DNA that provides the instructions for elite speed, power, and endurance.</p>
+      </div>
+    </header>
+
+    <main class="article-content-wrapper">
+      <article class="article-body">
+        <h2>Nature's Head Start</h2>
+        <p>Before the first practice, before the first game, an athlete's potential is already being shaped by their DNA. Genetics provides the fundamental blueprint for the human body, dictating everything from height and muscle composition to how efficiently our bodies use oxygen. While hard work and training are essential to unlock potential, our genes define the limits of that potential.</p>
+        
+        <h3>The "Sprint Gene": ACTN3</h3>
+        <p>One of the most studied genes related to athletic performance is ACTN3. This gene provides instructions for making a protein called alpha-actinin-3, which is found exclusively in fast-twitch muscle fibers. These fibers are responsible for producing the rapid, forceful contractions needed for explosive movements like sprinting and jumping. Elite power athletes often have a specific variant of the ACTN3 gene that allows them to produce this protein, giving them a significant advantage in sports requiring explosive power.</p>
+
+        <h3>The "Endurance Gene": ACE</h3>
+        <p>On the other end of the spectrum is the ACE gene, which is linked to cardiovascular efficiency and endurance. The I allele of the ACE gene has been consistently associated with endurance-oriented events. Certain variants of this gene are thought to improve the body's ability to deliver oxygen to working muscles over prolonged periods, making it a key factor for marathon runners and cyclists.</p>
+      </article>
+
+      <section class="key-terms-section">
+        <h2>Key Terms</h2>
+        <div class="key-terms-grid">
+          <div class="key-term-card">
+            <h4>Gene</h4>
+            <p>A distinct sequence of nucleotides forming part of a chromosome, determining a specific trait.</p>
+          </div>
+          <div class="key-term-card">
+            <h4>Allele</h4>
+            <p>A variant form of a given gene. For example, different alleles of the ACTN3 gene determine its function.</p>
+          </div>
+          <div class="key-term-card">
+            <h4>Fast-Twitch Fibers</h4>
+            <p>Muscle fibers that contract quickly and powerfully, used for explosive movements like sprinting.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sources-section">
+        <h2>Sources & Further Reading</h2>
+        <ol class="sources-list">
+          <li>
+            Myerson, S., et al. (2001). Human angiotensin I-converting enzyme gene and endurance performance. <em>Journal of Applied Physiology</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3993978/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3993978/</a>
+          </li>
+          <li>
+            Yang, N., et al. (2003). ACTN3 Genotype Is Associated with Human Elite Athletic Performance. <em>The American Journal of Human Genetics</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1180686/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1180686/</a>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer id="about" class="container">
+      <h2>About This Project</h2>
+      <p>BioMech is a passion project by a future Bioengineering major...</p>
+      <p class="copyright">© 2025 BioMech</p>
+    </footer>
+
+    <script>
+      const nav = document.querySelector('nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+    </script>
+  </body>
+</html>

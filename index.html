@@ -10,7 +10,8 @@
   </head>
   <body>
 
-    <!-- Navigation Bar -->
+    <canvas id="particle-canvas"></canvas>
+
     <nav>
       <a href="index.html" class="nav-brand">
         <img src="images/BioMechLogo.png" alt="BioMech Logo" class="logo-image">
@@ -28,27 +29,26 @@
         <div class="dropdown">
           <a href="#science" class="nav-link">The Science</a>
           <div class="dropdown-content">
-            <a href="#genetics">Genetics</a>
-            <a href="#muscles">How Muscles Work</a>
-            <a href="#fibers">Muscle Fibers</a>
-            <a href="#gene-editing">Gene Editing</a>
-            <a href="#tissue-engineering">Tissue Engineering</a>
+            <a href="genetics.html">Genetics</a>
+            <a href="muscles.html">How Muscles Work</a>
+            <a href="gene-editing.html">Gene Editing</a>
+            <a href="tissue-engineering.html">Tissue Engineering</a>
+            <a href="recovery.html">The Engineering of Recovery</a>
+            <a href="data.html">The Data-Driven Athlete</a>
           </div>
         </div>
         <a href="#about" class="nav-link">About</a>
       </div>
     </nav>
     
-    <!-- HERO SECTION -->
     <section class="hero">
       <div class="hero-content">
-        <h1>Deconstructing the Modern Athlete</h1>
+        <h1 data-value="DECONSTRUCTING THE MODERN ATHLETE">DECONSTRUCTING THE MODERN ATHLETE</h1>
         <p>Where biology meets design. We explore how bioengineering principles are used to analyze and enhance the world's most elite biological systems.</p>
       </div>
       <a href="#profiles" class="scroll-down" aria-label="Scroll down to profiles"></a>
     </section>
 
-    <!-- Main Content -->
     <main class="container">
       <section id="profiles">
         <h2>Athlete Profiles</h2>
@@ -90,65 +90,44 @@
       </section>
 
       <section id="science">
-        <h2 style="font-size: 2.8rem; margin-bottom: 50px;">The Science Behind the Sport</h2>
-        
-        <!-- Science Sections -->
-        <div id="genetics" class="topic-section">
-          <img src="images/dnastrand.webp" alt="Stylized DNA Helix" class="topic-image">
-          <div class="text-content">
+        <h2>The Science Behind the Sport</h2>
+        <div class="science-grid">
+          <div class="science-card">
+            <div class="science-card-glow"></div>
             <h3>The Genetic Blueprint</h3>
-            <p>Every athlete starts with a unique genetic hand. Genes like ACTN3, for instance, provide the instructions for building powerful, fast-twitch muscle fibers, giving some a natural head start in sprinting. Other genes can influence everything from oxygen efficiency to tendon strength, creating a unique athletic profile before the first day of training.</p>
+            <p>Every athlete starts with a unique genetic hand. Certain genes provide the instructions for building powerful muscles, while others influence endurance and injury risk.</p>
+            <a href="genetics.html" class="button">Dive Deeper</a>
           </div>
-        </div>
-        <div class="topic-section image-right">
-          <img src="images/gen_testing.jpg" alt="Futuristic Genetic Analysis Screen" class="topic-image">
-          <div class="text-content">
-            <h3>The Tech: Profiling & Ethics</h3>
-            <p>Modern biotechnology lets us read that genetic blueprint. By analyzing an athlete's DNA, teams can create personalized training and nutrition plans to maximize natural strengths. This powerful tool also opens up complex ethical questions about using gene-editing for an unfair advantage—a major challenge for the future of fair play in sports.</p>
+          <div class="science-card">
+            <div class="science-card-glow"></div>
+            <h3>How Muscles Work</h3>
+            <p>At a microscopic level, muscle contraction is an engineering marvel. Tiny protein filaments slide past one another to generate the force behind every movement.</p>
+            <a href="muscles.html" class="button">Learn More</a>
           </div>
-        </div>
-        <div id="muscles" class="topic-section">
-          <img src="images/sft.png" alt="Diagram of Muscle Contraction with actin and myosin" class="topic-image">
-          <div class="text-content">
-            <h3>How Muscles Work: A Tiny Engine</h3>
-            <p>Think of a muscle as being made of millions of tiny engines. The "Sliding Filament Theory" explains how they work. Inside each muscle fiber, two protein filaments, actin and myosin, are ready for action. Fueled by ATP, the body's energy currency, the myosin filaments grab onto actin and pull, like a microscopic game of tug-of-war. This action, happening trillions of times at once, generates the force for every movement.</p>
+          <div class="science-card">
+            <div class="science-card-glow"></div>
+            <h3>The Engineering of Recovery</h3>
+            <p>Recovery isn't just rest; it's an engineered process. Technologies like pneumatic compression boots apply mechanical pressure to improve circulation and accelerate healing.</p>
+            <a href="recovery.html" class="button">Explore the Tech</a>
           </div>
-        </div>
-        <div id="fibers" class="topic-section image-right">
-          <img src="images/typesofm.jpeg" alt="Microscopic View of different muscle fibers" class="topic-image">
-          <div class="text-content">
-            <h3>Muscle Fibers: Sprinters vs. Marathoners</h3>
-            <p>Not all muscle "engines" are built the same. Type I, or slow-twitch fibers, are endurance machines; they're efficient and resist fatigue, perfect for long-distance runners. Type II, or fast-twitch fibers, are the opposite: they contract with explosive power but tire out much faster, making them ideal for sprinters and weightlifters. An athlete's genetic code largely determines their natural mix of these fibers.</p>
+          <div class="science-card">
+            <div class="science-card-glow"></div>
+            <h3>The Data-Driven Athlete</h3>
+            <p>Bioengineers use sensors to turn the body into a data stream. By analyzing metrics like Heart Rate Variability (HRV), they can quantify recovery and optimize training plans.</p>
+            <a href="data.html" class="button">See the Science</a>
           </div>
-        </div>
-        <div id="gene-editing" class="topic-section">
-          <img src="images/cas9.png" alt="Abstract visualization of CRISPR gene editing" class="topic-image">
-          <div class="text-content">
-            <h3>The Future: Engineering the Athlete?</h3>
-            <p>Gene editing technologies like CRISPR are like "molecular scissors" that allow scientists to precisely cut and paste DNA. In medicine, this has the potential to cure genetic diseases. In sports, it could theoretically be used to "edit" an athlete's genes to build stronger muscles or enhance endurance. This is the ultimate frontier of bioengineering, but it also represents the most significant ethical challenge, blurring the line between therapy and enhancement.</p>
+          <div class="science-card">
+            <div class="science-card-glow"></div>
+            <h3>The Frontier: Gene Editing</h3>
+            <p>Technologies like CRISPR act like "molecular scissors" to edit DNA. This raises profound possibilities for curing disease and profound ethical questions about enhancing performance.</p>
+            <a href="gene-editing.html" class="button">Explore the Ethics</a>
           </div>
-        </div>
-
-        <!-- NEW: Tissue Engineering Section -->
-        <div id="tissue-engineering" class="topic-section image-right">
-            <img src="images/bioprint.jpg" alt="A 3D bioprinter creating a cartilage structure" class="topic-image">
-            <div class="text-content">
-              <h3>The Holy Grail: Tissue Engineering</h3>
-              <p>What if a career-ending injury wasn't the end? Tissue engineering aims to do just that. This field combines cells, engineering, and materials to create functional tissues. For an athlete, this could mean 3D-bioprinting a new piece of cartilage using their own cells, or growing a new ligament on a biodegradable scaffold that dissolves after the new tissue has integrated. It's the ultimate goal of regenerative medicine: building replacement parts for the human body.</p>
-            </div>
+          <div class="science-card">
+            <div class="science-card-glow"></div>
+            <h3>The Holy Grail: Tissue Engineering</h3>
+            <p>What if a career-ending injury wasn't the end? This field combines cells and materials to grow new, functional tissues like cartilage and ligaments in a lab.</p>
+            <a href="tissue-engineering.html" class="button">See the Future</a>
           </div>
-
-        <!-- Sources Section -->
-        <div class="sources-section">
-          <h3>Sources & Further Reading</h3>
-          <ol class="sources-list">
-            <li>Ahmetov, I. I., & Fedotovskaya, O. N. (2015). Current Progress in Sports Genomics. <em>Advances in clinical chemistry</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4960533/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4960533/</a></li>
-            <li>MacArthur, D. G., & North, K. N. (2005). A gene for speed? The evolution and function of α-actinin-3. <em>BioEssays</em>. Retrieved from <a href="https://pubmed.ncbi.nlm.nih.gov/15666368/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/15666368/</a></li>
-            <li>Sweeney, H. L., & Hammers, D. W. (2018). Muscle Contraction. <em>Cold Spring Harbor perspectives in biology</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5880170/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5880170/</a></li>
-            <li>Plotkin, D. L., et al. (2021). Muscle Fiber Type Transitions with Exercise Training: Shifting Perspectives. <em>Sports (Basel, Switzerland)</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8299832/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8299832/</a></li>
-            <li>Harriss, D. J., et al. (2018). Gene Doping. <em>World Medical Association</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6139884/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6139884/</a></li>
-            <li>O'Brien, F. J. (2011). Biomaterials & scaffolds for tissue engineering. <em>Materials today</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3184333/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3184333/</a></li>
-          </ol>
         </div>
       </section>
     </main>
@@ -159,14 +138,15 @@
         <p class="copyright">© 2025 BioMech</p>
     </footer>
 
-    <!-- JavaScript for Animations -->
     <script>
-      // Scroll-in animations
-      const animatedElements = document.querySelectorAll('.topic-section, .sources-section');
+      // Staggered scroll-in animations
+      const animatedElements = document.querySelectorAll('.science-card, .card-container');
       const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
           if (entry.isIntersecting) {
+            entry.target.style.transitionDelay = `${index * 100}ms`;
             entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
           }
         });
       }, { threshold: 0.1 });
@@ -177,24 +157,71 @@
       cardContainers.forEach(container => {
         const card = container.querySelector('.card');
         const glow = card.querySelector('.card-glow');
-        
         container.addEventListener('mousemove', (e) => {
           const rect = container.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
-          
           const rotateY = -1 * ((x - rect.width / 2) / (rect.width / 2)) * 8;
           const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * 8;
-          
           card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-          glow.style.setProperty('--mouse-x', `${x}px`);
-          glow.style.setProperty('--mouse-y', `${y}px`);
+          if (glow) {
+            glow.style.setProperty('--mouse-x', `${x}px`);
+            glow.style.setProperty('--mouse-y', `${y}px`);
+          }
         });
-
         container.addEventListener('mouseleave', () => {
           card.style.transform = 'rotateX(0) rotateY(0)';
         });
       });
+
+      // Spotlight effect for Science Cards
+      const scienceCards = document.querySelectorAll('.science-card');
+      scienceCards.forEach(card => {
+        const glow = card.querySelector('.science-card-glow');
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          glow.style.setProperty('--mouse-x', `${x}px`);
+          glow.style.setProperty('--mouse-y', `${y}px`);
+        });
+      });
+
+      // Particle animation
+      const canvas = document.getElementById('particle-canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      let particlesArray;
+      const mouse = { x: null, y: null, radius: (canvas.height/100) * (canvas.width/100) };
+      window.addEventListener('mousemove', (event) => { mouse.x = event.x; mouse.y = event.y; });
+      class Particle {
+        constructor(x, y, directionX, directionY, size, color) { this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY; this.size = size; this.color = color; }
+        draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false); ctx.fillStyle = 'rgba(0, 166, 251, 0.5)'; ctx.fill(); }
+        update() { if (this.x > canvas.width || this.x < 0) { this.directionX = -this.directionX; } if (this.y > canvas.height || this.y < 0) { this.directionY = -this.directionY; } let dx = mouse.x - this.x; let dy = mouse.y - this.y; let distance = Math.sqrt(dx*dx + dy*dy); if (distance < mouse.radius + this.size){ if(mouse.x < this.x && this.x < canvas.width - this.size * 10){ this.x += 3; } if(mouse.x > this.x && this.x > this.size * 10){ this.x -= 3; } if(mouse.y < this.y && this.y < canvas.height - this.size * 10){ this.y += 3; } if(mouse.y > this.y && this.y > this.size * 10){ this.y -= 3; } } this.x += this.directionX; this.y += this.directionY; this.draw(); }
+      }
+      function init() { particlesArray = []; let numberOfParticles = (canvas.height * canvas.width) / 9000; for (let i = 0; i < numberOfParticles; i++) { let size = (Math.random() * 2) + 1; let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2); let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2); let directionX = (Math.random() * .4) - .2; let directionY = (Math.random() * .4) - .2; particlesArray.push(new Particle(x, y, directionX, directionY, size, 'rgba(0, 166, 251, 0.5)')); } }
+      function animate() { requestAnimationFrame(animate); ctx.clearRect(0,0,innerWidth, innerHeight); for (let i = 0; i < particlesArray.length; i++) { particlesArray[i].update(); } connect(); }
+      function connect() { let opacityValue = 1; for (let a = 0; a < particlesArray.length; a++) { for (let b = a; b < particlesArray.length; b++) { let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y)); if (distance < (canvas.width/7) * (canvas.height/7)) { opacityValue = 1 - (distance/20000); ctx.strokeStyle = `rgba(0, 166, 251, ${opacityValue})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particlesArray[a].x, particlesArray[a].y); ctx.lineTo(particlesArray[b].x, particlesArray[b].y); ctx.stroke(); } } } }
+      window.addEventListener('resize', () => { canvas.width = innerWidth; canvas.height = innerHeight; mouse.radius = (canvas.height/100) * (canvas.width/100); init(); });
+      window.addEventListener('mouseout', () => { mouse.x = undefined; mouse.y = undefined; });
+      init(); animate();
+      
+      // Dynamic nav bar scroll effect & parallax
+      const nav = document.querySelector('nav');
+      const heroContent = document.querySelector('.hero-content');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+
+        const scrollValue = window.scrollY;
+        heroContent.style.transform = `translateY(${scrollValue * 0.5}px)`;
+        heroContent.style.opacity = 1 - (scrollValue / 300);
+      });
+
     </script>
 
   </body>

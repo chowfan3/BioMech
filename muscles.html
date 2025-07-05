@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How Muscles Work | BioMech</title>
+    <meta name="description" content="A microscopic look at how muscles function, based on the sliding filament theory and the roles of actin and myosin." />
+    <link rel="icon" href="images/BioMechLogo.png" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+
+    <nav>
+      <a href="index.html" class="nav-brand">
+        <img src="images/BioMechLogo.png" alt="BioMech Logo" class="logo-image">
+        <span class="logo-text">BioMech</span>
+      </a>
+      <div class="nav-links">
+        <div class="dropdown">
+          <a href="index.html#profiles" class="nav-link">Profiles</a>
+          <div class="dropdown-content">
+            <a href="lebron.html">LeBron James</a>
+            <a href="serena.html">Serena Williams</a>
+            <a href="ronaldo.html">Cristiano Ronaldo</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="index.html#science" class="nav-link">The Science</a>
+          <div class="dropdown-content">
+            <a href="genetics.html">Genetics</a>
+            <a href="muscles.html">How Muscles Work</a>
+            <a href="gene-editing.html">Gene Editing</a>
+            <a href="tissue-engineering.html">Tissue Engineering</a>
+            <a href="recovery.html">The Engineering of Recovery</a>
+            <a href="data.html">The Data-Driven Athlete</a>
+          </div>
+        </div>
+        <a href="index.html#about" class="nav-link">About</a>
+      </div>
+    </nav>
+    
+    <header class="article-header-banner" style="--bg-image: url('https://simplifaster.com/wp-content/uploads/2024/02/Sprint-Start-Lead.jpg');">
+      <div class="article-header-content">
+        <h1>How Muscles Work</h1>
+        <p class="article-summary">At a microscopic level, muscle contraction is an elegant and powerful process involving tiny protein filaments generating massive force.</p>
+      </div>
+    </header>
+
+    <main class="article-content-wrapper">
+      <article class="article-body">
+        <h2>The Sliding Filament Theory</h2>
+        <p>Every movement an athlete makes is powered by muscles. The mechanism behind this is the sliding filament theory, which states that muscle contraction occurs when actin (thin filaments) and myosin (thick filaments) slide past one another. This action shortens the muscle's individual contractile units, known as sarcomeres, generating the force that moves our bones.</p>
+        
+        <h3>The Molecular Machinery</h3>
+        <p>Myosin acts as a molecular motor. When a muscle receives a signal from a nerve, the heads of the myosin filaments attach to the actin filaments, forming "cross-bridges." Using energy from ATP (the body's energy currency), the myosin heads pull the actin filaments inward. This cycle of attaching, pulling, and detaching occurs thousands of times in a fraction of a second, resulting in a smooth, controlled muscle contraction. The collective force of millions of these molecular interactions allows athletes to perform incredible feats of strength.</p>
+      </article>
+
+      <section class="key-terms-section">
+        <h2>Key Terms</h2>
+        <div class="key-terms-grid">
+          <div class="key-term-card">
+            <h4>Actin</h4>
+            <p>A protein that forms the thin, rope-like filaments in muscle fibers.</p>
+          </div>
+          <div class="key-term-card">
+            <h4>Myosin</h4>
+            <p>A motor protein that forms the thick filaments, featuring "heads" that pull the actin filaments.</p>
+          </div>
+          <div class="key-term-card">
+            <h4>Sarcomere</h4>
+            <p>The basic contractile unit of a muscle fiber, composed of overlapping actin and myosin filaments.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sources-section">
+        <h2>Sources & Further Reading</h2>
+        <ol class="sources-list">
+          <li>
+            Huxley, H., & Hanson, J. (1954). Changes in the Cross-Striations of Muscle during Contraction and Stretch and their Structural Interpretation. <em>Nature</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5642817/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5642817/</a>
+          </li>
+          <li>
+            Sweeney, H. L., & Houdusse, A. (2010). The Myosin Family. <em>Cold Spring Harbor Perspectives in Biology</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2828142/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2828142/</a>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer id="about" class="container">
+      <h2>About This Project</h2>
+      <p>BioMech is a passion project by a future Bioengineering major...</p>
+      <p class="copyright">© 2025 BioMech</p>
+    </footer>
+
+    <script>
+      const nav = document.querySelector('nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+    </script>
+  </body>
+</html>

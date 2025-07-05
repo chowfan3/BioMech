@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Holy Grail: Tissue Engineering | BioMech</title>
+    <meta name="description" content="Learn how tissue engineering combines cells, materials (scaffolds), and growth factors to grow new, functional tissues like cartilage and ligaments in a lab." />
+    <link rel="icon" href="images/BioMechLogo.png" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+
+    <nav>
+      <a href="index.html" class="nav-brand">
+        <img src="images/BioMechLogo.png" alt="BioMech Logo" class="logo-image">
+        <span class="logo-text">BioMech</span>
+      </a>
+      <div class="nav-links">
+        <div class="dropdown">
+          <a href="index.html#profiles" class="nav-link">Profiles</a>
+          <div class="dropdown-content">
+            <a href="lebron.html">LeBron James</a>
+            <a href="serena.html">Serena Williams</a>
+            <a href="ronaldo.html">Cristiano Ronaldo</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="index.html#science" class="nav-link">The Science</a>
+          <div class="dropdown-content">
+            <a href="genetics.html">Genetics</a>
+            <a href="muscles.html">How Muscles Work</a>
+            <a href="gene-editing.html">Gene Editing</a>
+            <a href="tissue-engineering.html">Tissue Engineering</a>
+            <a href="recovery.html">The Engineering of Recovery</a>
+            <a href="data.html">The Data-Driven Athlete</a>
+          </div>
+        </div>
+        <a href="index.html#about" class="nav-link">About</a>
+      </div>
+    </nav>
+    
+    <header class="article-header-banner" style="--bg-image: url('https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=2070&auto=format&fit=crop');">
+      <div class="article-header-content">
+        <h1>The Holy Grail: Tissue Engineering</h1>
+        <p class="article-summary">What if a career-ending injury wasn't the end? This field combines cells and materials to grow new, functional tissues in a lab.</p>
+      </div>
+    </header>
+
+    <main class="article-content-wrapper">
+      <article class="article-body">
+        <h2>Building the Body Anew</h2>
+        <p>Tissue engineering aims to repair or regenerate damaged tissues, a crucial challenge in sports medicine, especially for tissues like articular cartilage that have a low regenerative capacity. For athletes, this field represents the ultimate frontier in injury recovery. Instead of just repairing damaged tissue, what if we could replace it with brand new, lab-grown tissue?</p>
+          
+        <h3>The Three Pillars</h3>
+        <p>The process of tissue engineering generally relies on three key components:</p>
+        <ul>
+          <li><strong>Cells:</strong> These are the fundamental building blocks. Often, chondrocytes (cartilage cells) or stem cells are harvested from the patient's own body.</li>
+          <li><strong>Scaffolds:</strong> These are biocompatible materials that are engineered to have a specific 3D structure. They act as a template, guiding the cells to grow into the desired shape, such as a knee meniscus or a section of a ligament.</li>
+          <li><strong>Growth Factors:</strong> These are signaling molecules that tell the cells what to do—how to multiply, differentiate, and organize themselves into functional tissue.</li>
+        </ul>
+        <p>By combining these three pillars in a controlled environment called a bioreactor, scientists can cultivate new tissues that, in the future, could be implanted into an injured athlete to provide a "like-new" repair.</p>
+      </article>
+
+      <section class="key-terms-section">
+        <h2>Key Terms</h2>
+        <div class="key-terms-grid">
+          <div class="key-term-card">
+            <h4>Scaffold</h4>
+            <p>A 3D material structure that serves as a template for tissue growth.</p>
+          </div>
+          <div class="key-term-card">
+            <h4>Chondrocytes</h4>
+            <p>The only cells found in healthy cartilage. They produce and maintain the cartilaginous matrix.</p>
+          </div>
+          <div class="key-term-card">
+            <h4>Bioreactor</h4>
+            <p>A device that provides a controlled environment for growing cells and tissues.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sources-section">
+        <h2>Sources & Further Reading</h2>
+        <ol class="sources-list">
+          <li>
+            Moutos, F. T., et al. (2007). A biomimetic three-dimensional woven composite scaffold for functional tissue engineering of cartilage. <em>Nature Materials</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2230638/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2230638/</a>
+          </li>
+          <li>
+            Chen, S., et al. (2011). The Role of Tissue Engineering in Articular Cartilage Repair and Regeneration. <em>Critical Reviews in Biomedical Engineering</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3146065/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3146065/</a>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer id="about" class="container">
+      <h2>About This Project</h2>
+      <p>BioMech is a passion project by a future Bioengineering major...</p>
+      <p class="copyright">© 2025 BioMech</p>
+    </footer>
+
+    <script>
+      const nav = document.querySelector('nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+    </script>
+  </body>
+</html>

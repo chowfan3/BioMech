@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Data-Driven Athlete | BioMech</title>
+    <meta name="description" content="Explore how bioengineers use wearable sensors and metrics like Heart Rate Variability (HRV) to quantify recovery and optimize training." />
+    <link rel="icon" href="images/BioMechLogo.png" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+
+    <nav>
+      <a href="index.html" class="nav-brand">
+        <img src="images/BioMechLogo.png" alt="BioMech Logo" class="logo-image">
+        <span class="logo-text">BioMech</span>
+      </a>
+      <div class="nav-links">
+        <div class="dropdown">
+          <a href="index.html#profiles" class="nav-link">Profiles</a>
+          <div class="dropdown-content">
+            <a href="lebron.html">LeBron James</a>
+            <a href="serena.html">Serena Williams</a>
+            <a href="ronaldo.html">Cristiano Ronaldo</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="index.html#science" class="nav-link">The Science</a>
+          <div class="dropdown-content">
+            <a href="genetics.html">Genetics</a>
+            <a href="muscles.html">How Muscles Work</a>
+            <a href="gene-editing.html">Gene Editing</a>
+            <a href="tissue-engineering.html">Tissue Engineering</a>
+            <a href="recovery.html">The Engineering of Recovery</a>
+            <a href="data.html">The Data-Driven Athlete</a>
+          </div>
+        </div>
+        <a href="index.html#about" class="nav-link">About</a>
+      </div>
+    </nav>
+    
+    <header class="article-header-banner" style="--bg-image: url('https://www.shutterstock.com/image-photo/hologram-athlete-running-wellness-exercise-600nw-2240460425.jpg');">
+      <div class="article-header-content">
+        <h1>The Data-Driven Athlete</h1>
+        <p class="article-summary">Bioengineers use sensors to turn the body into a data stream, replacing guesswork with precision to optimize performance and prevent injury.</p>
+      </div>
+    </header>
+
+    <main class="article-content-wrapper">
+      <article class="article-body">
+        <h2>Quantifying the Human Machine</h2>
+        <p>Wearable sensors allow athletes and teams to monitor movements, workloads, and biometric markers in an attempt to maximize performance and minimize injury. Wearable biosensors—from smartwatches and chest straps to sensor-embedded clothing—allow trainers and bioengineers to monitor athletes 24/7, gathering data on everything from sleep quality to workout intensity.</p>
+          
+        <h3>The Ultimate "Check Engine" Light: HRV</h3>
+        <p>One of the most valuable metrics collected is Heart Rate Variability (HRV), which has been shown to be an important indicator of fitness. HRV measures the variation in time between each heartbeat. While it sounds complex, the concept is simple: a high HRV is a sign that the body's nervous system is balanced and well-rested, while a low HRV indicates the body is under stress, whether from a tough workout, poor sleep, or illness.</p>
+        <p>By tracking HRV daily, a training plan can be adjusted in real time. If an athlete wakes up with a low HRV score, it's a clear, data-backed signal that their body hasn't fully recovered. Instead of pushing through a hard practice and risking injury or overtraining, the workout can be modified to be lighter. It replaces subjective feelings of "being tired" with objective, actionable data.</p>
+      </article>
+
+      <section class="key-terms-section">
+        <h2>Key Terms</h2>
+        <div class="key-terms-grid">
+          <div class="key-term-card">
+            <h4>Biosensor</h4>
+            <p>A device that measures biological or chemical data, like a heart rate monitor.</p>
+          </div>
+          <div class="key-term-card">
+            <h4>HRV</h4>
+            <p>Heart Rate Variability. The measure of the variation in time between consecutive heartbeats.</p>
+          </div>
+          <div class="key-term-card">
+            <h4>Overtraining</h4>
+            <p>A state of fatigue and underperformance from excessive training and inadequate rest.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sources-section">
+        <h2>Sources & Further Reading</h2>
+        <ol class="sources-list">
+          <li>
+            Cha, Y. J., et al. (2018). Wearable-Based Advanced Human-Computer Interfaces. <em>Journal of Healthcare Engineering</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5872828/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5872828/</a>
+          </li>
+          <li>
+            Düking, P., et al. (2016). Wearables for Training and Performance Assessment: A Systematic Review. <em>Frontiers in Physiology</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4919331/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4919331/</a>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer id="about" class="container">
+      <h2>About This Project</h2>
+      <p>BioMech is a passion project by a future Bioengineering major...</p>
+      <p class="copyright">© 2025 BioMech</p>
+    </footer>
+
+    <script>
+      const nav = document.querySelector('nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+    </script>
+  </body>
+</html>

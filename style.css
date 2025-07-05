@@ -19,23 +19,13 @@ body {
   overflow-x: hidden;
 }
 
-body::before {
-  content: '';
+#particle-canvas {
   position: fixed;
   top: 0;
   left: 0;
-  width: 200%;
-  height: 200%;
+  width: 100%;
+  height: 100%;
   z-index: -1;
-  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: moveGrid 20s linear infinite;
-}
-
-@keyframes moveGrid {
-  from { transform: translate(0, 0); }
-  to { transform: translate(-50px, -50px); }
 }
 
 ::-webkit-scrollbar {
@@ -58,6 +48,8 @@ body::before {
   max-width: 1100px;
   margin: 40px auto;
   padding: 0 40px;
+  position: relative;
+  z-index: 2;
 }
 
 h2 {
@@ -71,9 +63,10 @@ h2 {
 }
 
 h3 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 1.8rem;
   color: var(--light-blue);
+  transition: color 0.3s ease;
 }
 
 a {
@@ -93,17 +86,24 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  height: 75px;
+  height: 80px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(13, 27, 42, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(13, 27, 42, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   border-bottom: 1px solid rgba(224, 225, 221, 0.1);
   box-sizing: border-box;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+nav.scrolled {
+  background: rgba(13, 27, 42, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .nav-brand {
@@ -159,7 +159,7 @@ nav {
   display: none;
   position: absolute;
   background-color: var(--mid-blue);
-  min-width: 180px;
+  min-width: 220px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
   z-index: 1;
   border-radius: 8px;
@@ -203,21 +203,7 @@ nav {
   text-align: center;
   color: #fff;
   position: relative;
-  background-image: url('https://images.pexels.com/photos/163403/boxer-man-sport-training-163403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(13, 27, 42, 0.6), rgba(13, 27, 42, 0.9));
 }
 
 .hero-content {
@@ -225,6 +211,7 @@ nav {
   z-index: 2;
   max-width: 800px;
   padding: 20px;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 }
 
 .hero h1 {
@@ -233,14 +220,14 @@ nav {
   margin-bottom: 15px;
   font-weight: 900;
   color: #fff;
-  animation: slideUp 1s ease-out forwards;
+  text-transform: uppercase;
 }
 
 .hero p {
   font-size: 1.4rem;
   color: rgba(224, 225, 221, 0.9);
   opacity: 0;
-  animation: slideUp 1s ease-out 0.5s forwards;
+  animation: slideUp 1s ease-out 1s forwards;
 }
 
 @keyframes slideUp {
@@ -258,6 +245,7 @@ nav {
   border-bottom: 2px solid #fff;
   transform: translateX(-50%) rotate(-45deg);
   animation: pulse 2s infinite;
+  z-index: 2;
 }
 
 @keyframes pulse {
@@ -267,7 +255,7 @@ nav {
 }
 
 
-/* --- CORRECTED 3D INTERACTIVE CARDS --- */
+/* --- 3D INTERACTIVE PROFILE CARDS --- */
 .athlete-profiles {
   display: flex;
   justify-content: center;
@@ -277,13 +265,23 @@ nav {
 }
 
 .card-container {
-  perspective: 1500px; /* 3D effect is now on this container */
+  perspective: 1500px;
   flex: 1 1 250px;
   max-width: 280px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.card-container.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .card {
-  background-color: var(--mid-blue);
+  background: rgba(27, 45, 69, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(0, 166, 251, 0.3);
   border-radius: 12px;
   overflow: hidden;
@@ -295,7 +293,7 @@ nav {
   height: 100%;
 }
 
-.card::before { /* Animated border */
+.card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -306,6 +304,7 @@ nav {
   border: 2px solid transparent;
   background: linear-gradient(to right, var(--light-blue), var(--accent-orange)) border-box;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
   opacity: 0;
@@ -355,99 +354,117 @@ nav {
   border-radius: 8px;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  text-decoration: none;
   margin-top: 15px;
-  box-sizing: border-box;
-  text-align: center;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button:hover {
   background-color: var(--text-light);
   transform: scale(1.05);
+  box-shadow: 0 0 15px 5px rgba(255, 159, 28, 0.7);
 }
 
 
-/* --- ANIMATED SPLIT-CONTENT LAYOUT --- */
-.topic-section {
+/* --- REDESIGNED SCIENCE CARDS --- */
+.science-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  margin: 100px 0;
-  opacity: 0;
-  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
 }
 
-.topic-section:nth-of-type(odd) {
-  transform: translateX(-50px);
-}
-
-.topic-section:nth-of-type(even) {
-  transform: translateX(50px);
-}
-
-.topic-section.is-visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.topic-section.image-right .topic-image {
-  grid-column: 2;
-  grid-row: 1;
-}
-.topic-section.image-right .text-content {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.topic-image {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
+.science-card {
+  background: rgba(27, 45, 69, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 166, 251, 0.2);
   border-radius: 12px;
-  transition: transform 0.4s ease;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.topic-image:hover {
-  transform: scale(1.03);
+.science-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.text-content h3 {
-  font-size: 2.2rem;
+.science-card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(0, 166, 251, 0.15), transparent 40%);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  z-index: 1;
+}
+
+.science-card:hover .science-card-glow {
+  opacity: 1;
+}
+
+.science-card > * {
+  position: relative;
+  z-index: 3;
+}
+
+
+.science-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: linear-gradient(120deg, var(--accent-orange), var(--light-blue)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.science-card:hover {
+  transform: translateY(-10px);
+}
+
+.science-card:hover::before {
+  opacity: 1;
+}
+
+.science-card:hover h3 {
+  color: var(--accent-orange);
+}
+
+.science-card h3 {
   margin-top: 0;
-  border-bottom: 3px solid var(--accent-orange);
-  padding-bottom: 15px;
-  margin-bottom: 25px;
+  border-bottom: 2px solid rgba(0, 166, 251, 0.5);
+  padding-bottom: 10px;
 }
 
-.text-content p {
-  font-size: 1.1rem;
-  line-height: 1.8;
+.science-card p {
+  flex-grow: 1;
+  color: rgba(224, 225, 221, 0.9);
 }
 
-/* --- SOURCES & FOOTER --- */
-.sources-section, footer {
+/* --- FOOTER --- */
+footer {
   text-align: center;
   margin-top: 80px;
-  padding-top: 40px;
+  padding: 40px 0;
   border-top: 1px solid rgba(224, 225, 221, 0.2);
-}
-
-.sources-list {
-  list-style-type: decimal;
-  padding-left: 20px;
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.sources-list li {
-  margin-bottom: 20px;
-  line-height: 1.5;
-  overflow-wrap: break-word;
 }
 
 .copyright {
@@ -455,30 +472,150 @@ nav {
   color: rgba(224, 225, 221, 0.7);
 }
 
+/*
+=================================
+NEW STYLES FOR SCIENCE ARTICLES
+=================================
+*/
+
+.article-header-banner {
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  margin-top: 80px; /* To clear the fixed nav bar */
+}
+
+.article-header-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-image: var(--bg-image);
+  filter: brightness(0.4);
+  z-index: 1;
+}
+
+.article-header-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+.article-header-content h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.article-header-content .article-summary {
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: 15px auto 0;
+  opacity: 0.9;
+}
+
+.article-content-wrapper {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.article-body h2 {
+  font-size: 2.2rem;
+  text-align: left;
+  color: var(--light-blue);
+  margin-top: 50px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--accent-orange);
+  padding-bottom: 10px;
+}
+
+.article-body h3 {
+  font-size: 1.6rem;
+  color: var(--accent-orange);
+  margin-top: 30px;
+}
+
+.article-body p, .article-body li {
+  font-size: 1.1rem;
+  line-height: 1.9;
+}
+
+.article-body ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.article-body li {
+  padding-left: 1.5em;
+  position: relative;
+}
+
+.article-body li::before {
+  content: '■';
+  position: absolute;
+  left: 0;
+  color: var(--accent-orange);
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.key-terms-section {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(224, 225, 221, 0.2);
+}
+
+.key-terms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.key-term-card {
+  background: var(--mid-blue);
+  border: 1px solid rgba(0, 166, 251, 0.2);
+  border-radius: 12px;
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.key-term-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.key-term-card h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--accent-orange);
+  margin: 0 0 10px 0;
+}
+
+.key-term-card p {
+  font-size: 1rem;
+  margin: 0;
+  color: rgba(224, 225, 221, 0.9);
+}
+
 
 /* --- MEDIA QUERIES --- */
 @media (max-width: 768px) {
   .hero h1 { font-size: 2.5rem; }
   .hero p { font-size: 1.1rem; }
-  
-  .topic-section,
-  .topic-section:nth-of-type(odd),
-  .topic-section:nth-of-type(even) {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    transform: translateY(30px);
-  }
-  .topic-section.image-right .topic-image {
-    grid-column: 1;
-    grid-row: 1;
-  }
-  .topic-section.image-right .text-content {
-    grid-column: 1;
-    grid-row: 2;
-  }
-  .topic-section.is-visible {
-    transform: translateY(0);
-  }
+  .article-header-content h1 { font-size: 2.5rem; }
 }
 
 @media (max-width: 600px) {
@@ -492,4 +629,30 @@ nav {
     width: 100%;
     justify-content: space-around;
   }
+}
+/* --- NEW STYLES FOR SOURCES --- */
+
+.sources-section {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(224, 225, 221, 0.2);
+}
+
+.sources-list {
+  list-style-type: decimal;
+  padding-left: 20px;
+  max-width: 800px; /* Matched to article wrapper */
+  margin: 0;
+  text-align: left;
+}
+
+.sources-list li {
+  margin-bottom: 25px;
+  line-height: 1.6;
+  color: rgba(224, 225, 221, 0.9);
+}
+
+.sources-list li a {
+  font-weight: 600;
+  word-break: break-all; /* Helps long links wrap properly */
 }

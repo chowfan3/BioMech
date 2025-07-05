@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Frontier: Gene Editing | BioMech</title>
+    <meta name="description" content="An introduction to CRISPR and the profound possibilities and ethical questions surrounding gene editing for performance enhancement." />
+    <link rel="icon" href="images/BioMechLogo.png" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+
+    <nav>
+      <a href="index.html" class="nav-brand">
+        <img src="images/BioMechLogo.png" alt="BioMech Logo" class="logo-image">
+        <span class="logo-text">BioMech</span>
+      </a>
+      <div class="nav-links">
+        <div class="dropdown">
+          <a href="index.html#profiles" class="nav-link">Profiles</a>
+          <div class="dropdown-content">
+            <a href="lebron.html">LeBron James</a>
+            <a href="serena.html">Serena Williams</a>
+            <a href="ronaldo.html">Cristiano Ronaldo</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="index.html#science" class="nav-link">The Science</a>
+          <div class="dropdown-content">
+            <a href="genetics.html">Genetics</a>
+            <a href="muscles.html">How Muscles Work</a>
+            <a href="gene-editing.html">Gene Editing</a>
+            <a href="tissue-engineering.html">Tissue Engineering</a>
+            <a href="recovery.html">The Engineering of Recovery</a>
+            <a href="data.html">The Data-Driven Athlete</a>
+          </div>
+        </div>
+        <a href="index.html#about" class="nav-link">About</a>
+      </div>
+    </nav>
+    
+    <header class="article-header-banner" style="--bg-image: url('https://www.shutterstock.com/image-photo/medicine-development-laboratory-asian-female-600nw-2456036585.jpg');">
+      <div class="article-header-content">
+        <h1>The Frontier: Gene Editing</h1>
+        <p class="article-summary">Technologies like CRISPR act like 'molecular scissors' to edit DNA, raising profound possibilities for curing disease and profound ethical questions about enhancing performance.</p>
+      </div>
+    </header>
+
+    <main class="article-content-wrapper">
+      <article class="article-body">
+        <h2>CRISPR: A Revolution in Biology</h2>
+        <p>Gene editing technologies give scientists the ability to change an organism's DNA by adding, removing, or altering genetic material at particular locations in the genome. The most famous of these is CRISPR-Cas9, which was adapted from a naturally occurring genome editing system used by bacteria as an immune defense.</p>
+          
+        <h3>Therapeutic Potential</h3>
+        <p>The primary focus of gene editing research is on treating and preventing human diseases. It holds incredible promise for curing genetic disorders like sickle cell anemia, Huntington's disease, and cystic fibrosis by correcting the faulty genes that cause them. From an athletic perspective, it could be used to repair genes that predispose players to conditions like ACL tears or certain heart conditions.</p>
+
+        <h3>The Ethical Minefield</h3>
+        <p>The same tool that can fix a broken gene could, in theory, be used to enhance a healthy one. Changes made to egg or sperm cells (germline cells) could be passed to future generations, which brings up a number of ethical challenges, including whether it would be permissible to enhance normal human traits like height or intelligence. This is where the concept of "gene doping" emerges. The use of germline cell and embryo genome editing is currently illegal in many countries due to these ethical and safety concerns.</p>
+      </article>
+
+      <section class="key-terms-section">
+        <h2>Key Terms</h2>
+        <div class="key-terms-grid">
+          <div class="key-term-card">
+            <h4>CRISPR-Cas9</h4>
+            <p>A powerful and precise gene-editing tool derived from bacteria, often described as 'molecular scissors'.</p>
+          </div>
+          <div class="key-term-card">
+            <h4>Gene Doping</h4>
+            <p>The hypothetical, non-therapeutic use of gene editing to enhance athletic performance.</p>
+          </div>
+          <div class="key-term-card">
+            <h4>Somatic Cells</h4>
+            <p>Any cell of a living organism other than the reproductive cells. Changes to these are not passed to offspring.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sources-section">
+        <h2>Sources & Further Reading</h2>
+        <ol class="sources-list">
+          <li>
+            U.S. National Library of Medicine. (2020). What are genome editing and CRISPR-Cas9?. <em>MedlinePlus</em>. Retrieved from <a href="https://medlineplus.gov/genetics/understanding/genomicresearch/genomeediting/" target="_blank" rel="noopener noreferrer">https://medlineplus.gov/genetics/understanding/genomicresearch/genomeediting/</a>
+          </li>
+          <li>
+            Baylis, F., & Darnovsky, M. (2021). Human Germline and Heritable Genome Editing: The Global Conversation. <em>The CRISPR Journal</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8220557/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8220557/</a>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer id="about" class="container">
+      <h2>About This Project</h2>
+      <p>BioMech is a passion project by a future Bioengineering major...</p>
+      <p class="copyright">© 2025 BioMech</p>
+    </footer>
+
+    <script>
+      const nav = document.querySelector('nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+    </script>
+  </body>
+</html>
