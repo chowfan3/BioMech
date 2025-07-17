@@ -24,10 +24,13 @@
             <a href="lebron.html">LeBron James</a>
             <a href="serena.html">Serena Williams</a>
             <a href="ronaldo.html">Cristiano Ronaldo</a>
+            <a href="subingtian.html">Su Bingtian</a>
+            <a href="muhammadali.html">Muhammad Ali</a>
+            <a href="michaelphelps.html">Michael Phelps</a>
           </div>
         </div>
         <div class="dropdown">
-          <a href="#science" class="nav-link">The Science</a>
+          <a href="science.html" class="nav-link">The Science</a>
           <div class="dropdown-content">
             <a href="genetics.html">Genetics</a>
             <a href="muscles.html">How Muscles Work</a>
@@ -35,6 +38,9 @@
             <a href="tissue-engineering.html">Tissue Engineering</a>
             <a href="recovery.html">The Engineering of Recovery</a>
             <a href="data.html">The Data-Driven Athlete</a>
+            <a href="energy-systems.html">Energy Systems</a>
+            <a href="cardiac-adaptations.html">Cardiac Adaptations</a>
+            <a href="motor-learning.html">Motor Learning</a>
           </div>
         </div>
         <a href="#about" class="nav-link">About</a>
@@ -44,7 +50,7 @@
     <section class="hero">
       <div class="hero-content">
         <h1 data-value="DECONSTRUCTING THE MODERN ATHLETE">DECONSTRUCTING THE MODERN ATHLETE</h1>
-        <p>Where biology meets design. We explore how bioengineering principles are used to analyze and enhance the world's greatest athletes.</p>
+        <p>Where biology meets design. We explore how bioengineering principles are used to analyze and enhance the world's most elite biological systems.</p>
       </div>
       <a href="#profiles" class="scroll-down" aria-label="Scroll down to profiles"></a>
     </section>
@@ -86,49 +92,46 @@
               </div>
             </div>
           </div>
+          <div class="card-container">
+            <div class="card">
+              <div class="card-glow"></div>
+              <img src="images/sbt.jpg" alt="Su Bingtian exploding from the starting blocks"/>
+              <div class="card-content">
+                <h3>Su Bingtian</h3>
+                <p>A look into the refined biomechanics that power a sub-10 second sprint and defy physical expectations.</p>
+                <a href="subingtian.html" class="button" title="Learn more about Su Bingtian">Analyze The Start</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="card">
+              <div class="card-glow"></div>
+              <img src="images/mh.jpeg" alt="A classic black and white photo of a boxer"/>
+              <div class="card-content">
+                <h3>Muhammad Ali</h3>
+                <p>Deconstructing the neuroscience behind the lightning-fast reflexes and iconic footwork of "The Greatest".</p>
+                <a href="muhammadali.html" class="button" title="Learn more about Muhammad Ali">Uncover The Genius</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="card">
+              <div class="card-glow"></div>
+              <img src="images/mp.webp" alt="A swimmer doing the butterfly stroke"/>
+              <div class="card-content">
+                <h3>Michael Phelps</h3>
+                <p>Exploring the unique physiological advantages and biomechanics that made him a legend in the water.</p>
+                <a href="michaelphelps.html" class="button" title="Learn more about Michael Phelps">Dive Into The Science</a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="science">
-        <h2>The Science Behind the Sport</h2>
-        <div class="science-grid">
-          <div class="science-card">
-            <div class="science-card-glow"></div>
-            <h3>The Genetic Blueprint</h3>
-            <p>Every athlete starts with a unique genetic hand. Certain genes provide the instructions for building powerful muscles, while others influence endurance and injury risk.</p>
-            <a href="genetics.html" class="button">Dive Deeper</a>
-          </div>
-          <div class="science-card">
-            <div class="science-card-glow"></div>
-            <h3>How Muscles Work</h3>
-            <p>At a microscopic level, muscle contraction is an engineering marvel. Tiny protein filaments slide past one another to generate the force behind every movement.</p>
-            <a href="muscles.html" class="button">Learn More</a>
-          </div>
-          <div class="science-card">
-            <div class="science-card-glow"></div>
-            <h3>The Engineering of Recovery</h3>
-            <p>Recovery isn't just rest; it's an engineered process. Technologies like pneumatic compression boots apply mechanical pressure to improve circulation and accelerate healing.</p>
-            <a href="recovery.html" class="button">Explore the Tech</a>
-          </div>
-          <div class="science-card">
-            <div class="science-card-glow"></div>
-            <h3>The Data-Driven Athlete</h3>
-            <p>Bioengineers use sensors to turn the body into a data stream. By analyzing metrics like Heart Rate Variability (HRV), they can quantify recovery and optimize training plans.</p>
-            <a href="data.html" class="button">See the Science</a>
-          </div>
-          <div class="science-card">
-            <div class="science-card-glow"></div>
-            <h3>The Frontier: Gene Editing</h3>
-            <p>Technologies like CRISPR act like "molecular scissors" to edit DNA. This raises profound possibilities for curing disease and profound ethical questions about enhancing performance.</p>
-            <a href="gene-editing.html" class="button">Explore the Ethics</a>
-          </div>
-          <div class="science-card">
-            <div class="science-card-glow"></div>
-            <h3>The Holy Grail: Tissue Engineering</h3>
-            <p>What if a career-ending injury wasn't the end? This field combines cells and materials to grow new, functional tissues like cartilage and ligaments in a lab.</p>
-            <a href="tissue-engineering.html" class="button">See the Future</a>
-          </div>
-        </div>
+      <section id="science" class="cta-section">
+        <h2>Explore The Science</h2>
+        <p>From the genetic code that defines potential to the molecular machinery that powers every movement, dive deep into the bioengineering principles behind elite performance.</p>
+        <a href="science.html" class="button">Visit The Science Hub</a>
       </section>
     </main>
 
@@ -139,7 +142,6 @@
     </footer>
 
     <script>
-      // Staggered scroll-in animations
       const animatedElements = document.querySelectorAll('.science-card, .card-container');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
@@ -151,8 +153,7 @@
         });
       }, { threshold: 0.1 });
       animatedElements.forEach(el => observer.observe(el));
-
-      // 3D card hover effect
+      
       const cardContainers = document.querySelectorAll('.card-container');
       cardContainers.forEach(container => {
         const card = container.querySelector('.card');
@@ -174,7 +175,6 @@
         });
       });
 
-      // Spotlight effect for Science Cards
       const scienceCards = document.querySelectorAll('.science-card');
       scienceCards.forEach(card => {
         const glow = card.querySelector('.science-card-glow');
@@ -187,7 +187,6 @@
         });
       });
 
-      // Particle animation
       const canvas = document.getElementById('particle-canvas');
       const ctx = canvas.getContext('2d');
       canvas.width = window.innerWidth;
@@ -207,7 +206,6 @@
       window.addEventListener('mouseout', () => { mouse.x = undefined; mouse.y = undefined; });
       init(); animate();
       
-      // Dynamic nav bar scroll effect & parallax
       const nav = document.querySelector('nav');
       const heroContent = document.querySelector('.hero-content');
       window.addEventListener('scroll', () => {
@@ -221,7 +219,6 @@
         heroContent.style.transform = `translateY(${scrollValue * 0.5}px)`;
         heroContent.style.opacity = 1 - (scrollValue / 300);
       });
-
     </script>
 
   </body>

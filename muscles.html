@@ -22,10 +22,13 @@
             <a href="lebron.html">LeBron James</a>
             <a href="serena.html">Serena Williams</a>
             <a href="ronaldo.html">Cristiano Ronaldo</a>
+            <a href="subingtian.html">Su Bingtian</a>
+            <a href="muhammadali.html">Muhammad Ali</a>
+            <a href="michaelphelps.html">Michael Phelps</a>
           </div>
         </div>
         <div class="dropdown">
-          <a href="index.html#science" class="nav-link">The Science</a>
+         <a href="science.html" class="nav-link">The Science</a>
           <div class="dropdown-content">
             <a href="genetics.html">Genetics</a>
             <a href="muscles.html">How Muscles Work</a>
@@ -73,6 +76,32 @@
         </div>
       </section>
 
+      <section class="quiz-section">
+        <h2>Test Your Knowledge</h2>
+        <form id="muscles-quiz">
+          <div class="quiz-question">
+            <p>1. According to the sliding filament theory, which two protein filaments slide past one another to cause muscle contraction?</p>
+            <label><input type="radio" name="q1" value="collagen-elastin"> Collagen and Elastin</label>
+            <label><input type="radio" name="q1" value="actin-myosin"> Actin and Myosin</label>
+            <label><input type="radio" name="q1" value="keratin-fibrin"> Keratin and Fibrin</label>
+          </div>
+          <div class="quiz-question">
+            <p>2. What is the name of the basic contractile unit of a muscle fiber?</p>
+            <label><input type="radio" name="q2" value="neuron"> Neuron</label>
+            <label><input type="radio" name="q2" value="tendon"> Tendon</label>
+            <label><input type="radio" name="q2" value="sarcomere"> Sarcomere</label>
+          </div>
+          <div class="quiz-question">
+            <p>3. What molecule provides the energy for the myosin heads to pull the actin filaments?</p>
+            <label><input type="radio" name="q3" value="atp"> ATP (Adenosine Triphosphate)</label>
+            <label><input type="radio" name="q3" value="dna"> DNA</label>
+            <label><input type="radio" name="q3" value="glucose"> Glucose</label>
+          </div>
+          <button type="submit" class="button">Submit Answers</button>
+        </form>
+        <div id="quiz-results"></div>
+      </section>
+
       <section class="sources-section">
         <h2>Sources & Further Reading</h2>
         <ol class="sources-list">
@@ -87,18 +116,52 @@
     </main>
 
     <footer id="about" class="container">
-      <h2>About This Project</h2>
-      <p>BioMech is a passion project by a future Bioengineering major...</p>
-      <p class="copyright">© 2025 BioMech</p>
+        <h2>About This Project</h2>
+        <p>BioMech is a passion project by a future Bioengineering major. It deconstructs elite athletes not just as players, but as high-performance biological systems, exploring how principles of mechanical engineering, materials science, and biotechnology are applied to push the boundaries of human potential.</p>
+        <p class="copyright">© 2025 BioMech</p>
     </footer>
 
     <script>
+      // Navigation scroll effect
       const nav = document.querySelector('nav');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
           nav.classList.add('scrolled');
         } else {
           nav.classList.remove('scrolled');
+        }
+      });
+
+      // QUIZ LOGIC
+      const quizForm = document.getElementById('muscles-quiz');
+      const resultsDiv = document.getElementById('quiz-results');
+
+      quizForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const correctAnswers = {
+          q1: 'actin-myosin',
+          q2: 'sarcomere',
+          q3: 'atp'
+        };
+
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+
+        for (const question in correctAnswers) {
+          const userAnswer = quizForm.elements[question].value;
+          if (userAnswer === correctAnswers[question]) {
+            score++;
+          }
+        }
+
+        resultsDiv.innerHTML = `You scored ${score} out of ${totalQuestions}!`;
+        resultsDiv.style.display = 'block';
+
+        if (score === totalQuestions) {
+          resultsDiv.className = 'correct';
+        } else {
+          resultsDiv.className = 'incorrect';
         }
       });
     </script>

@@ -22,10 +22,13 @@
             <a href="lebron.html">LeBron James</a>
             <a href="serena.html">Serena Williams</a>
             <a href="ronaldo.html">Cristiano Ronaldo</a>
+            <a href="subingtian.html">Su Bingtian</a>
+            <a href="muhammadali.html">Muhammad Ali</a>
+            <a href="michaelphelps.html">Michael Phelps</a>
           </div>
         </div>
         <div class="dropdown">
-          <a href="index.html#science" class="nav-link">The Science</a>
+         <a href="science.html" class="nav-link">The Science</a>
           <div class="dropdown-content">
             <a href="genetics.html">Genetics</a>
             <a href="muscles.html">How Muscles Work</a>
@@ -79,6 +82,32 @@
         </div>
       </section>
 
+      <section class="quiz-section">
+        <h2>Test Your Knowledge</h2>
+        <form id="tissue-quiz">
+          <div class="quiz-question">
+            <p>1. What is the name for the 3D material structure that acts as a template for cell growth?</p>
+            <label><input type="radio" name="q1" value="bioreactor"> Bioreactor</label>
+            <label><input type="radio" name="q1" value="scaffold"> Scaffold</label>
+            <label><input type="radio" name="q1" value="chondrocyte"> Chondrocyte</label>
+          </div>
+          <div class="quiz-question">
+            <p>2. Which of the following is NOT considered one of the three pillars of tissue engineering?</p>
+            <label><input type="radio" name="q2" value="cells"> Cells</label>
+            <label><input type="radio" name="q2" value="antibiotics"> Antibiotics</label>
+            <label><input type="radio" name="q2" value="growth-factors"> Growth Factors</label>
+          </div>
+          <div class="quiz-question">
+            <p>3. What type of specialized cell is found in cartilage tissue?</p>
+            <label><input type="radio" name="q3" value="osteocyte"> Osteocyte</label>
+            <label><input type="radio" name="q3" value="neuron"> Neuron</label>
+            <label><input type="radio" name="q3" value="chondrocyte"> Chondrocyte</label>
+          </div>
+          <button type="submit" class="button">Submit Answers</button>
+        </form>
+        <div id="quiz-results"></div>
+      </section>
+
       <section class="sources-section">
         <h2>Sources & Further Reading</h2>
         <ol class="sources-list">
@@ -93,18 +122,52 @@
     </main>
 
     <footer id="about" class="container">
-      <h2>About This Project</h2>
-      <p>BioMech is a passion project by a future Bioengineering major...</p>
-      <p class="copyright">© 2025 BioMech</p>
+        <h2>About This Project</h2>
+        <p>BioMech is a passion project by a future Bioengineering major. It deconstructs elite athletes not just as players, but as high-performance biological systems, exploring how principles of mechanical engineering, materials science, and biotechnology are applied to push the boundaries of human potential.</p>
+        <p class="copyright">© 2025 BioMech</p>
     </footer>
 
     <script>
+      // Navigation scroll effect
       const nav = document.querySelector('nav');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
           nav.classList.add('scrolled');
         } else {
           nav.classList.remove('scrolled');
+        }
+      });
+
+      // QUIZ LOGIC
+      const quizForm = document.getElementById('tissue-quiz');
+      const resultsDiv = document.getElementById('quiz-results');
+
+      quizForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const correctAnswers = {
+          q1: 'scaffold',
+          q2: 'antibiotics',
+          q3: 'chondrocyte'
+        };
+
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+
+        for (const question in correctAnswers) {
+          const userAnswer = quizForm.elements[question].value;
+          if (userAnswer === correctAnswers[question]) {
+            score++;
+          }
+        }
+
+        resultsDiv.innerHTML = `You scored ${score} out of ${totalQuestions}!`;
+        resultsDiv.style.display = 'block';
+
+        if (score === totalQuestions) {
+          resultsDiv.className = 'correct';
+        } else {
+          resultsDiv.className = 'incorrect';
         }
       });
     </script>

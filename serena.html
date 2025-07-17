@@ -26,10 +26,13 @@
             <a href="lebron.html">LeBron James</a>
             <a href="serena.html">Serena Williams</a>
             <a href="ronaldo.html">Cristiano Ronaldo</a>
+            <a href="subingtian.html">Su Bingtian</a>
+            <a href="muhammadali.html">Muhammad Ali</a>
+            <a href="michaelphelps.html">Michael Phelps</a>
           </div>
         </div>
         <div class="dropdown">
-          <a href="index.html#science" class="nav-link">The Science</a>
+          <a href="science.html" class="nav-link">The Science</a>
           <div class="dropdown-content">
             <a href="genetics.html">Genetics</a>
             <a href="muscles.html">How Muscles Work</a>
@@ -37,16 +40,19 @@
             <a href="tissue-engineering.html">Tissue Engineering</a>
             <a href="recovery.html">The Engineering of Recovery</a>
             <a href="data.html">The Data-Driven Athlete</a>
+            <a href="energy-systems.html">Energy Systems</a>
+            <a href="cardiac-adaptations.html">Cardiac Adaptations</a>
+            <a href="motor-learning.html">Motor Learning</a>
           </div>
         </div>
         <a href="index.html#about" class="nav-link">About</a>
       </div>
     </nav>
 
-    <main class="container">
+<main class="container" style="padding-top: 60px;">
       <section>
-        <h2 style="font-size: 2.8rem; margin-bottom: 20px;">Serena Williams</h2> 
-        <p style="text-align: center; font-size: 1.2rem; margin-top: -20px; margin-bottom: 50px; color: #e0e1dd;">The Biomechanics of Power</p>
+        <h2 class="athlete-title">Serena Williams</h2> 
+        <p class="athlete-subtitle">The Biomechanics of Power</p>
 
         <div class="intro-section" style="text-align: center; margin-bottom: 60px;">
             <img src="images/serenaserve.webp" alt="Portrait of Serena Williams serving" class="topic-image" style="height: 400px; margin-bottom: 30px;">
@@ -106,7 +112,6 @@
 
     <script>
       const animatedElements = document.querySelectorAll('.topic-section, .sources-section, .intro-section');
-
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -116,11 +121,9 @@
       }, {
         threshold: 0.1
       });
-
       animatedElements.forEach(el => {
         observer.observe(el);
       });
     </script>
-
   </body>
 </html>

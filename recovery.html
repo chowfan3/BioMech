@@ -22,10 +22,13 @@
             <a href="lebron.html">LeBron James</a>
             <a href="serena.html">Serena Williams</a>
             <a href="ronaldo.html">Cristiano Ronaldo</a>
+            <a href="subingtian.html">Su Bingtian</a>
+            <a href="muhammadali.html">Muhammad Ali</a>
+            <a href="michaelphelps.html">Michael Phelps</a>
           </div>
         </div>
         <div class="dropdown">
-          <a href="index.html#science" class="nav-link">The Science</a>
+          <a href="science.html" class="nav-link">The Science</a>
           <div class="dropdown-content">
             <a href="genetics.html">Genetics</a>
             <a href="muscles.html">How Muscles Work</a>
@@ -76,6 +79,32 @@
         </div>
       </section>
 
+      <section class="quiz-section">
+        <h2>Test Your Knowledge</h2>
+        <form id="recovery-quiz">
+          <div class="quiz-question">
+            <p>1. What process do pneumatic compression boots mimic to improve circulation?</p>
+            <label><input type="radio" name="q1" value="breathing"> Breathing</label>
+            <label><input type="radio" name="q1" value="digestion"> Digestion</label>
+            <label><input type="radio" name="q1" value="muscle-pump"> The body's natural muscle pump</label>
+          </div>
+          <div class="quiz-question">
+            <p>2. What is the primary goal of using Whole-Body Cryotherapy in athletic recovery?</p>
+            <label><input type="radio" name="q2" value="strength"> To build muscle strength</label>
+            <label><input type="radio" name="q2" value="inflammation"> To reduce inflammation</label>
+            <label><input type="radio" name="q2" value="flexibility"> To increase flexibility</label>
+          </div>
+          <div class="quiz-question">
+            <p>3. The tightening of blood vessels in response to extreme cold is called:</p>
+            <label><input type="radio" name="q3" value="vasodilation"> Vasodilation</label>
+            <label><input type="radio" name="q3" value="vasoconstriction"> Vasoconstriction</label>
+            <label><input type="radio" name="q3" value="osmosis"> Osmosis</label>
+          </div>
+          <button type="submit" class="button">Submit Answers</button>
+        </form>
+        <div id="quiz-results"></div>
+      </section>
+
       <section class="sources-section">
         <h2>Sources & Further Reading</h2>
         <ol class="sources-list">
@@ -90,18 +119,52 @@
     </main>
 
     <footer id="about" class="container">
-      <h2>About This Project</h2>
-      <p>BioMech is a passion project by a future Bioengineering major...</p>
-      <p class="copyright">© 2025 BioMech</p>
+        <h2>About This Project</h2>
+        <p>BioMech is a passion project by a future Bioengineering major. It deconstructs elite athletes not just as players, but as high-performance biological systems, exploring how principles of mechanical engineering, materials science, and biotechnology are applied to push the boundaries of human potential.</p>
+        <p class="copyright">© 2025 BioMech</p>
     </footer>
 
     <script>
+      // Navigation scroll effect
       const nav = document.querySelector('nav');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
           nav.classList.add('scrolled');
         } else {
           nav.classList.remove('scrolled');
+        }
+      });
+
+      // QUIZ LOGIC
+      const quizForm = document.getElementById('recovery-quiz');
+      const resultsDiv = document.getElementById('quiz-results');
+
+      quizForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const correctAnswers = {
+          q1: 'muscle-pump',
+          q2: 'inflammation',
+          q3: 'vasoconstriction'
+        };
+
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+
+        for (const question in correctAnswers) {
+          const userAnswer = quizForm.elements[question].value;
+          if (userAnswer === correctAnswers[question]) {
+            score++;
+          }
+        }
+
+        resultsDiv.innerHTML = `You scored ${score} out of ${totalQuestions}!`;
+        resultsDiv.style.display = 'block';
+
+        if (score === totalQuestions) {
+          resultsDiv.className = 'correct';
+        } else {
+          resultsDiv.className = 'incorrect';
         }
       });
     </script>

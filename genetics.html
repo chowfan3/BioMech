@@ -22,10 +22,13 @@
             <a href="lebron.html">LeBron James</a>
             <a href="serena.html">Serena Williams</a>
             <a href="ronaldo.html">Cristiano Ronaldo</a>
+            <a href="subingtian.html">Su Bingtian</a>
+            <a href="muhammadali.html">Muhammad Ali</a>
+            <a href="michaelphelps.html">Michael Phelps</a>
           </div>
         </div>
         <div class="dropdown">
-          <a href="index.html#science" class="nav-link">The Science</a>
+          <a href="science.html" class="nav-link">The Science</a>
           <div class="dropdown-content">
             <a href="genetics.html">Genetics</a>
             <a href="muscles.html">How Muscles Work</a>
@@ -33,6 +36,9 @@
             <a href="tissue-engineering.html">Tissue Engineering</a>
             <a href="recovery.html">The Engineering of Recovery</a>
             <a href="data.html">The Data-Driven Athlete</a>
+            <a href="energy-systems.html">Energy Systems</a>
+            <a href="cardiac-adaptations.html">Cardiac Adaptations</a>
+            <a href="motor-learning.html">Motor Learning</a>
           </div>
         </div>
         <a href="index.html#about" class="nav-link">About</a>
@@ -76,6 +82,32 @@
         </div>
       </section>
 
+      <section class="quiz-section">
+        <h2>Test Your Knowledge</h2>
+        <form id="genetics-quiz">
+          <div class="quiz-question">
+            <p>1. Which gene is famously known as the "sprint gene" because of its association with fast-twitch muscle fibers?</p>
+            <label><input type="radio" name="q1" value="ace"> ACE</label>
+            <label><input type="radio" name="q1" value="actn3"> ACTN3</label>
+            <label><input type="radio" name="q1" value="myh7"> MYH7</label>
+          </div>
+          <div class="quiz-question">
+            <p>2. A variation in a gene, such as the different forms of the ACTN3 gene, is called a(n):</p>
+            <label><input type="radio" name="q2" value="allele"> Allele</label>
+            <label><input type="radio" name="q2" value="chromosome"> Chromosome</label>
+            <label><input type="radio" name="q2" value="nucleotide"> Nucleotide</label>
+          </div>
+          <div class="quiz-question">
+            <p>3. The ACE gene is most commonly associated with which type of athletic performance?</p>
+            <label><input type="radio" name="q3" value="power"> Explosive Power</label>
+            <label><input type="radio" name="q3" value="flexibility"> Flexibility</label>
+            <label><input type="radio" name="q3" value="endurance"> Endurance</label>
+          </div>
+          <button type="submit" class="button">Submit Answers</button>
+        </form>
+        <div id="quiz-results"></div>
+      </section>
+
       <section class="sources-section">
         <h2>Sources & Further Reading</h2>
         <ol class="sources-list">
@@ -91,7 +123,7 @@
 
     <footer id="about" class="container">
       <h2>About This Project</h2>
-      <p>BioMech is a passion project by a future Bioengineering major...</p>
+      <p>BioMech is a passion project by a future Bioengineering major. It deconstructs elite athletes not just as players, but as high-performance biological systems, exploring how principles of mechanical engineering, materials science, and biotechnology are applied to push the boundaries of human potential.</p>
       <p class="copyright">© 2025 BioMech</p>
     </footer>
 
@@ -103,6 +135,24 @@
         } else {
           nav.classList.remove('scrolled');
         }
+      });
+
+      const quizForm = document.getElementById('genetics-quiz');
+      const resultsDiv = document.getElementById('quiz-results');
+
+      quizForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const correctAnswers = { q1: 'actn3', q2: 'allele', q3: 'endurance' };
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+        for (const question in correctAnswers) {
+          if (quizForm.elements[question].value === correctAnswers[question]) {
+            score++;
+          }
+        }
+        resultsDiv.innerHTML = `You scored ${score} out of ${totalQuestions}!`;
+        resultsDiv.style.display = 'block';
+        resultsDiv.className = (score === totalQuestions) ? 'correct' : 'incorrect';
       });
     </script>
   </body>

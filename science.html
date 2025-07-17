@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Science | BioMech</title>
+    <meta name="description" content="An organized hub for all the scientific articles and concepts explored on BioMech." />
+    <link rel="icon" href="images/BioMechLogo.png" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+
+    <nav>
+      <a href="index.html" class="nav-brand">
+        <img src="images/BioMechLogo.png" alt="BioMech Logo" class="logo-image">
+        <span class="logo-text">BioMech</span>
+      </a>
+      <div class="nav-links">
+        <div class="dropdown">
+          <a href="index.html#profiles" class="nav-link">Profiles</a>
+          <div class="dropdown-content">
+            <a href="lebron.html">LeBron James</a>
+            <a href="serena.html">Serena Williams</a>
+            <a href="ronaldo.html">Cristiano Ronaldo</a>
+            <a href="subingtian.html">Su Bingtian</a>
+            <a href="muhammadali.html">Muhammad Ali</a>
+            <a href="michaelphelps.html">Michael Phelps</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="science.html" class="nav-link">The Science</a>
+          <div class="dropdown-content">
+            <a href="genetics.html">Genetics</a>
+            <a href="muscles.html">How Muscles Work</a>
+            <a href="gene-editing.html">Gene Editing</a>
+            <a href="tissue-engineering.html">Tissue Engineering</a>
+            <a href="recovery.html">The Engineering of Recovery</a>
+            <a href="data.html">The Data-Driven Athlete</a>
+            <a href="energy-systems.html">Energy Systems</a>
+            <a href="cardiac-adaptations.html">Cardiac Adaptations</a>
+            <a href="motor-learning.html">Motor Learning</a>
+          </div>
+        </div>
+        <a href="index.html#about" class="nav-link">About</a>
+      </div>
+    </nav>
+    
+    <header class="article-header-banner" style="--bg-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=2070&auto=format&fit=crop');">
+      <div class="article-header-content">
+        <h1>The Science Hub</h1>
+        <p class="article-summary">Explore the core principles of biotechnology and bioengineering that define the modern athlete.</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="science-hub-grid">
+        <div class="science-grid">
+          <div class="science-card">
+            <div class="science-card-glow"></div>
+            <h3>The Genetic Blueprint</h3>
+            <p>Every athlete starts with a unique genetic hand. Certain genes provide the instructions for building powerful muscles, while others influence endurance and injury risk.</p>
+            <a href="genetics.html" class="button">Dive Deeper</a>
+          </div>
+          <div class="science-card">
+            <div class="science-card-glow"></div>
+            <h3>How Muscles Work</h3>
+            <p>At a microscopic level, muscle contraction is an engineering marvel. Tiny protein filaments slide past one another to generate the force behind every movement.</p>
+            <a href="muscles.html" class="button">Learn More</a>
+          </div>
+          <div class="science-card">
+            <div class="science-card-glow"></div>
+            <h3>The Cellular Engine</h3>
+            <p>A look at the three energy systems (ATP-PCr, Glycolytic, and Oxidative) that provide the fuel for every athletic movement.</p>
+            <a href="energy-systems.html" class="button">Explore The Fuel</a>
+          </div>
+          <div class="science-card">
+            <div class="science-card-glow"></div>
+            <h3>The Athlete's Heart</h3>
+            <p>Discover the structural and functional cardiac adaptations that allow elite athletes to perform at incredible levels of endurance.</p>
+            <a href="cardiac-adaptations.html" class="button">See The Pump</a>
+          </div>
+          <div class="science-card">
+            <div class="science-card-glow"></div>
+            <h3>The Brain's Blueprint</h3>
+            <p>An exploration of motor learning, myelination, and how the brain creates the "muscle memory" for elite skills.</p>
+            <a href="motor-learning.html" class="button">Uncover The Code</a>
+          </div>
+          <div class="science-card">
+            <div class="science-card-glow"></div>
+            <h3>The Data-Driven Athlete</h3>
+            <p>Bioengineers use sensors to turn the body into a data stream, quantifying recovery and optimizing training plans.</p>
+            <a href="data.html" class="button">See the Science</a>
+          </div>
+          <div class="science-card">
+            <div class="science-card-glow"></div>
+            <h3>The Engineering of Recovery</h3>
+            <p>Recovery isn't just rest; it's an engineered process to improve circulation and accelerate healing.</p>
+            <a href="recovery.html" class="button">Explore the Tech</a>
+          </div>
+          <div class="science-card">
+            <div class="science-card-glow"></div>
+            <h3>The Frontier: Gene Editing</h3>
+            <p>Technologies like CRISPR raise possibilities for curing disease and profound ethical questions about performance.</p>
+            <a href="gene-editing.html" class="button">Explore the Ethics</a>
+          </div>
+          <div class="science-card">
+            <div class="science-card-glow"></div>
+            <h3>The Holy Grail: Tissue Engineering</h3>
+            <p>This field combines cells and materials to grow new, functional tissues like cartilage and ligaments in a lab.</p>
+            <a href="tissue-engineering.html" class="button">See the Future</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="about" class="container">
+        <h2>About This Project</h2>
+        <p>BioMech is a passion project by a future Bioengineering major. It deconstructs elite athletes not just as players, but as high-performance biological systems, exploring how principles of mechanical engineering, materials science, and biotechnology are applied to push the boundaries of human potential.</p>
+        <p class="copyright">© 2025 BioMech</p>
+    </footer>
+
+    <script>
+      const animatedElements = document.querySelectorAll('.science-card');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            entry.target.style.transitionDelay = `${index * 100}ms`;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      animatedElements.forEach(el => observer.observe(el));
+
+      const scienceCards = document.querySelectorAll('.science-card');
+      scienceCards.forEach(card => {
+        const glow = card.querySelector('.science-card-glow');
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          glow.style.setProperty('--mouse-x', `${x}px`);
+          glow.style.setProperty('--mouse-y', `${y}px`);
+        });
+      });
+    </script>
+  </body>
+</html>

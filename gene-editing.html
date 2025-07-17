@@ -22,10 +22,13 @@
             <a href="lebron.html">LeBron James</a>
             <a href="serena.html">Serena Williams</a>
             <a href="ronaldo.html">Cristiano Ronaldo</a>
+            <a href="subingtian.html">Su Bingtian</a>
+            <a href="muhammadali.html">Muhammad Ali</a>
+            <a href="michaelphelps.html">Michael Phelps</a>
           </div>
         </div>
         <div class="dropdown">
-          <a href="index.html#science" class="nav-link">The Science</a>
+          <a href="science.html" class="nav-link">The Science</a>
           <div class="dropdown-content">
             <a href="genetics.html">Genetics</a>
             <a href="muscles.html">How Muscles Work</a>
@@ -33,13 +36,16 @@
             <a href="tissue-engineering.html">Tissue Engineering</a>
             <a href="recovery.html">The Engineering of Recovery</a>
             <a href="data.html">The Data-Driven Athlete</a>
+            <a href="energy-systems.html">Energy Systems</a>
+            <a href="cardiac-adaptations.html">Cardiac Adaptations</a>
+            <a href="motor-learning.html">Motor Learning</a>
           </div>
         </div>
         <a href="index.html#about" class="nav-link">About</a>
       </div>
     </nav>
     
-    <header class="article-header-banner" style="--bg-image: url('https://www.shutterstock.com/image-photo/medicine-development-laboratory-asian-female-600nw-2456036585.jpg');">
+    <header class="article-header-banner" style="--bg-image: url('https://images.unsplash.com/photo-1631556760646-50241850eb25?q=80&w=1740&auto=format&fit=crop');">
       <div class="article-header-content">
         <h1>The Frontier: Gene Editing</h1>
         <p class="article-summary">Technologies like CRISPR act like 'molecular scissors' to edit DNA, raising profound possibilities for curing disease and profound ethical questions about enhancing performance.</p>
@@ -47,6 +53,50 @@
     </header>
 
     <main class="article-content-wrapper">
+      <section class="crispr-holodeck">
+        <h2>CRISPR Holodeck: Case File 001</h2>
+        <div class="holodeck-wrapper">
+          
+          <div class="holodeck-panel mission-panel">
+            <h3>MISSION BRIEF</h3>
+            <p><strong>TARGET:</strong> HBB Gene</p>
+            <p><strong>CONDITION:</strong> Sickle Cell Anemia</p>
+            <p><strong>OBJECTIVE:</strong> Correct the <span class="error-text">GTG</span> point mutation to the healthy <span class="success-text">GAG</span> codon using Homology Directed Repair (HDR).</p>
+          </div>
+
+          <div class="holodeck-workspace">
+            <div id="cas9-enzyme-v2"></div>
+            <div id="gRNA-strand"></div>
+            <div id="donor-template">GAG</div>
+
+            <div class="dna-strand-container">
+              <code id="dna-strand">...CCTG<span class="error-text">GTG</span>GAGG...</code>
+              <div id="pam-scanner"></div>
+              <p class="pam-label">PAM</p>
+            </div>
+
+            <div id="workspace-message" class="workspace-message-hidden">MESSAGE</div>
+          </div>
+
+          <div class="holodeck-panel science-log">
+            <h3>SCIENCE LOG</h3>
+            <ul id="science-log-list">
+              <li class="pending">Awaiting Mission Start...</li>
+            </ul>
+          </div>
+
+        </div>
+        <div class="holodeck-controls">
+          <button id="start-mission-btn" class="button">Begin Mission</button>
+          
+          <div id="repair-choice-container" style="display: none;">
+            <p><strong>CRITICAL CHOICE:</strong> DNA REPAIR PATHWAY</p>
+            <button id="nhej-btn" class="button repair-btn">NHEJ (Error-Prone)</button>
+            <button id="hdr-btn" class="button repair-btn">HDR (High-Fidelity)</button>
+          </div>
+        </div>
+      </section>
+      
       <article class="article-body">
         <h2>CRISPR: A Revolution in Biology</h2>
         <p>Gene editing technologies give scientists the ability to change an organism's DNA by adding, removing, or altering genetic material at particular locations in the genome. The most famous of these is CRISPR-Cas9, which was adapted from a naturally occurring genome editing system used by bacteria as an immune defense.</p>
@@ -76,6 +126,32 @@
         </div>
       </section>
 
+      <section class="quiz-section">
+        <h2>Test Your Knowledge</h2>
+        <form id="gene-editing-quiz">
+          <div class="quiz-question">
+            <p>1. What popular gene-editing tool was adapted from a system found in bacteria?</p>
+            <label><input type="radio" name="q1" value="pcr"> PCR</label>
+            <label><input type="radio" name="q1" value="crispr"> CRISPR-Cas9</label>
+            <label><input type="radio" name="q1" value="electrophoresis"> Gel Electrophoresis</label>
+          </div>
+          <div class="quiz-question">
+            <p>2. What is the term for the hypothetical use of gene editing to improve athletic performance?</p>
+            <label><input type="radio" name="q2" value="gene-doping"> Gene Doping</label>
+            <label><input type="radio" name="q2" value="somatic-therapy"> Somatic Therapy</label>
+            <label><input type="radio" name="q2" value="genetic-enhancement"> Genetic Enhancement</label>
+          </div>
+          <div class="quiz-question">
+            <p>3. Editing which type of cells would result in changes being passed to future generations?</p>
+            <label><input type="radio" name="q3" value="somatic"> Somatic Cells</label>
+            <label><input type="radio" name="q3" value="blood"> Blood Cells</label>
+            <label><input type="radio" name="q3" value="germline"> Germline Cells</label>
+          </div>
+          <button type="submit" class="button">Submit Answers</button>
+        </form>
+        <div id="quiz-results"></div>
+      </section>
+
       <section class="sources-section">
         <h2>Sources & Further Reading</h2>
         <ol class="sources-list">
@@ -91,11 +167,12 @@
 
     <footer id="about" class="container">
       <h2>About This Project</h2>
-      <p>BioMech is a passion project by a future Bioengineering major...</p>
+      <p>BioMech is a passion project by a future Bioengineering major. It deconstructs elite athletes not just as players, but as high-performance biological systems, exploring how principles of mechanical engineering, materials science, and biotechnology are applied to push the boundaries of human potential.</p>
       <p class="copyright">© 2025 BioMech</p>
     </footer>
 
     <script>
+      // Navigation scroll effect
       const nav = document.querySelector('nav');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -103,6 +180,149 @@
         } else {
           nav.classList.remove('scrolled');
         }
+      });
+
+      // --- CRISPR SIMULATOR LOGIC ---
+      document.addEventListener('DOMContentLoaded', () => {
+        const startBtn = document.getElementById('start-mission-btn');
+        const dnaStrandEl = document.getElementById('dna-strand');
+        const pamScanner = document.getElementById('pam-scanner');
+        const pamLabel = document.querySelector('.pam-label');
+        const enzymeEl = document.getElementById('cas9-enzyme-v2');
+        const gRNAEl = document.getElementById('gRNA-strand');
+        const donorTemplateEl = document.getElementById('donor-template');
+        const workspaceMsg = document.getElementById('workspace-message');
+        const repairChoiceContainer = document.getElementById('repair-choice-container');
+        const nhejBtn = document.getElementById('nhej-btn');
+        const hdrBtn = document.getElementById('hdr-btn');
+        const logList = document.getElementById('science-log-list');
+
+        let missionActive = false;
+
+        const log = (message, status = 'pending') => {
+            if (logList.children[0] && logList.children[0].textContent === 'Awaiting Mission Start...') {
+                logList.innerHTML = '';
+            }
+            const li = document.createElement('li');
+            li.className = status;
+            li.innerHTML = message;
+            logList.appendChild(li);
+            logList.scrollTop = logList.scrollHeight;
+        };
+
+        const showMessage = (text, type) => {
+            workspaceMsg.textContent = text;
+            workspaceMsg.className = `workspace-message-visible ${type}`;
+        };
+
+        const hideMessage = () => {
+            workspaceMsg.className = 'workspace-message-hidden';
+        };
+
+        const resetSimulation = () => {
+            missionActive = false;
+            startBtn.disabled = false;
+            startBtn.style.display = 'block';
+            repairChoiceContainer.style.display = 'none';
+
+            dnaStrandEl.innerHTML = `...CCTG<span class="error-text">GTG</span>GAGG...`;
+            dnaStrandEl.classList.remove('cut', 'repaired');
+            
+            pamScanner.style.animation = 'none';
+            pamLabel.style.opacity = '0';
+            enzymeEl.style.animation = 'none';
+            gRNAEl.style.animation = 'none';
+            donorTemplateEl.style.animation = 'none';
+            
+            logList.innerHTML = '<li class="pending">Awaiting Mission Start...</li>';
+            hideMessage();
+        };
+
+        startBtn.addEventListener('click', () => {
+            if (missionActive) return;
+            missionActive = true;
+            startBtn.disabled = true;
+
+            log('Locating target protospacer adjacent motif (PAM)...', 'processing');
+            pamScanner.style.animation = 'scan 2s linear forwards';
+            
+            setTimeout(() => {
+                pamLabel.style.opacity = '1';
+                log('PAM sequence <span class="success-text">TGG</span> identified.', 'success');
+                log('Synthesizing and loading guide RNA...', 'processing');
+                gRNAEl.style.animation = 'load-grna 1.5s forwards';
+            }, 2000);
+
+            setTimeout(() => {
+                log('Deploying Cas9 Nuclease...', 'processing');
+                enzymeEl.style.animation = 'deploy-cas9 2s forwards';
+            }, 3500);
+            
+            setTimeout(() => {
+                log('Scanning for target sequence...', 'processing');
+            }, 5500);
+            
+            setTimeout(() => {
+                dnaStrandEl.classList.add('melt');
+                log('Target found. Unwinding DNA...', 'success');
+                log('Performing double-strand break...', 'processing');
+            }, 6500);
+
+            setTimeout(() => {
+                dnaStrandEl.classList.add('cut');
+                enzymeEl.classList.add('cut-effect');
+                log('CUT CONFIRMED. DNA severed.', 'error');
+                showMessage('CRITICAL CHOICE REQUIRED', 'warning');
+                startBtn.style.display = 'none';
+                repairChoiceContainer.style.display = 'flex';
+            }, 7500);
+        });
+
+        nhejBtn.addEventListener('click', () => {
+            log('NHEJ pathway initiated. Error-prone repair resulted in random indel.', 'error');
+            dnaStrandEl.innerHTML = `...CCTG<span class="error-text">G---G</span>GAGG...`;
+            showMessage('MISSION FAILED: Gene Knockout', 'error');
+            repairChoiceContainer.style.display = 'none';
+            setTimeout(resetSimulation, 4000);
+        });
+        
+        hdrBtn.addEventListener('click', () => {
+            log('HDR pathway initiated. Deploying donor template...', 'processing');
+            repairChoiceContainer.style.display = 'none';
+            donorTemplateEl.style.animation = 'deploy-donor 2s forwards';
+
+            setTimeout(() => {
+                dnaStrandEl.classList.add('repaired');
+                dnaStrandEl.innerHTML = `...CCTG<span class="success-text">GAG</span>GAGG...`;
+                log('DNA repaired using template.', 'success');
+                showMessage('MISSION SUCCESSFUL', 'success');
+                enzymeEl.style.animation = 'retract-cas9 2s forwards';
+                gRNAEl.style.animation = 'retract-cas9 2s forwards';
+            }, 2000);
+
+            setTimeout(resetSimulation, 6000);
+        });
+
+        resetSimulation(); // Initialize
+      });
+
+      // --- QUIZ LOGIC ---
+      const quizForm = document.getElementById('gene-editing-quiz');
+      const resultsDiv = document.getElementById('quiz-results');
+
+      quizForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const correctAnswers = { q1: 'crispr', q2: 'gene-doping', q3: 'germline' };
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+        for (const question in correctAnswers) {
+          if (quizForm.elements[question] && quizForm.elements[question].value === correctAnswers[question]) {
+            score++;
+          }
+        }
+        resultsDiv.innerHTML = `You scored ${score} out of ${totalQuestions}!`;
+        resultsDiv.style.display = 'block';
+        resultsDiv.className = (score === totalQuestions) ? 'correct' : 'incorrect';
       });
     </script>
   </body>
