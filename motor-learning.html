@@ -39,7 +39,7 @@
             <a href="energy-systems.html">Energy Systems</a>
             <a href="cardiac-adaptations.html">Cardiac Adaptations</a>
             <a href="motor-learning.html">Motor Learning</a>
-          </div>
+        </div>
         </div>
         <a href="index.html#about" class="nav-link">About</a>
       </div>
@@ -159,6 +159,25 @@
         resultsDiv.style.display = 'block';
         resultsDiv.className = (score === totalQuestions) ? 'correct' : 'incorrect';
       });
+      // --- Auto-Hiding Navigation Bar on Scroll ---
+let lastScrollTop = 0;
+const navBar = document.querySelector('nav');
+
+window.addEventListener('scroll', function() {
+    // Get the current scroll position
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // Scrolling Down
+        navBar.classList.add('nav-up');
+    } else {
+        // Scrolling Up
+        navBar.classList.remove('nav-up');
+    }
+    
+    // Update the last scroll position
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+});
     </script>
   </body>
 </html>

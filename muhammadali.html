@@ -121,6 +121,25 @@
       animatedElements.forEach(el => {
         observer.observe(el);
       });
+      // --- Auto-Hiding Navigation Bar on Scroll ---
+let lastScrollTop = 0;
+const navBar = document.querySelector('nav');
+
+window.addEventListener('scroll', function() {
+    // Get the current scroll position
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // Scrolling Down
+        navBar.classList.add('nav-up');
+    } else {
+        // Scrolling Up
+        navBar.classList.remove('nav-up');
+    }
+    
+    // Update the last scroll position
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+});
     </script>
   </body>
 </html>

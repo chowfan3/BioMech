@@ -45,7 +45,7 @@
       </div>
     </nav>
     
-    <header class="article-header-banner" style="--bg-image: url('https://images.unsplash.com/photo-1631556760646-50241850eb25?q=80&w=1740&auto=format&fit=crop');">
+    <header class="article-header-banner" style="--bg-image: url('images/crisprpage.jpg');">
       <div class="article-header-content">
         <h1>The Frontier: Gene Editing</h1>
         <p class="article-summary">Technologies like CRISPR act like 'molecular scissors' to edit DNA, raising profound possibilities for curing disease and profound ethical questions about enhancing performance.</p>
@@ -53,116 +53,122 @@
     </header>
 
     <main class="article-content-wrapper">
-      <section class="crispr-holodeck">
-        <h2>CRISPR Holodeck: Case File 001</h2>
+      
+      <div id="main-article-content">
+        <article class="article-body">
+          <h2>CRISPR: A Revolution in Biology</h2>
+          <p>Gene editing technologies give scientists the ability to change an organism's DNA by adding, removing, or altering genetic material at particular locations in the genome. The most famous of these is CRISPR-Cas9, which was adapted from a naturally occurring genome editing system used by bacteria as an immune defense.</p>
+          <h3>Therapeutic Potential</h3>
+          <p>The primary focus of gene editing research is on treating and preventing human diseases. It holds incredible promise for curing genetic disorders like sickle cell anemia, Huntington's disease, and cystic fibrosis by correcting the faulty genes that cause them...</p>
+          <h3>The Ethical Minefield</h3>
+          <p>The same tool that can fix a broken gene could, in theory, be used to enhance a healthy one... The use of germline cell and embryo genome editing is currently illegal in many countries due to these ethical and safety concerns.</p>
+        </article>
+      </div>
+
+      <section id="crispr-simulator-section">
+        <h2 id="simulator-title">Interactive Lab: Correcting Sickle Cell Anemia</h2>
         <div class="holodeck-wrapper">
           
           <div class="holodeck-panel mission-panel">
             <h3>MISSION BRIEF</h3>
-            <p><strong>TARGET:</strong> HBB Gene</p>
-            <p><strong>CONDITION:</strong> Sickle Cell Anemia</p>
-            <p><strong>OBJECTIVE:</strong> Correct the <span class="error-text">GTG</span> point mutation to the healthy <span class="success-text">GAG</span> codon using Homology Directed Repair (HDR).</p>
+            <p><strong>CASE FILE:</strong> <span id="mission-title"></span></p>
+            <p><strong>OBJECTIVE:</strong> <span id="mission-objective"></span></p>
           </div>
 
           <div class="holodeck-workspace">
-            <div id="cas9-enzyme-v2"></div>
-            <div id="gRNA-strand"></div>
-            <div id="donor-template">GAG</div>
-
-            <div class="dna-strand-container">
-              <code id="dna-strand">...CCTG<span class="error-text">GTG</span>GAGG...</code>
-              <div id="pam-scanner"></div>
-              <p class="pam-label">PAM</p>
+            <div class="workspace-background"></div>
+            <div id="mission-complete-screen" class="hidden">
+                <div class="report-content">
+                    <h3 id="completion-title"></h3>
+                    <div class="report-section">
+                        <h4>What Happened?</h4>
+                        <p id="completion-summary"></p>
+                    </div>
+                    <div class="report-section hidden" id="correct-approach-section">
+                        <h4>The Correct Approach</h4>
+                        <p id="correct-approach-summary"></p>
+                    </div>
+                    <div class="report-buttons">
+                        <button id="try-again-btn" class="button">Try Again</button>
+                        <button id="next-mission-btn" class="button">Next Mission</button>
+                    </div>
+                </div>
             </div>
 
-            <div id="workspace-message" class="workspace-message-hidden">MESSAGE</div>
+            <div id="cas9-enzyme-v5">
+                <div class="cas9-body"><div class="cas9-glow"></div></div>
+                <div class="cas9-scissor">
+                    <div class="blade top"></div>
+                    <div class="blade bottom"></div>
+                </div>
+            </div>
+             <div id="grna-rings-v5">
+                <div class="handle top"></div>
+                <div class="handle bottom"></div>
+            </div>
+
+            <div id="donor-template"></div>
+            <div id="dna-strand-container">
+              <div id="cut-particles"></div>
+              <div class="dna-strand-bg dna-strand-bg-top"></div>
+              <code id="dna-strand"></code>
+              <div class="dna-strand-bg dna-strand-bg-bottom"></div>
+            </div>
           </div>
 
           <div class="holodeck-panel science-log">
             <h3>SCIENCE LOG</h3>
-            <ul id="science-log-list">
-              <li class="pending">Awaiting Mission Start...</li>
-            </ul>
+            <ul id="science-log-list"></ul>
+          </div>
+          
+          <div class="holodeck-panel component-panel">
+              <h3>COMPONENTS</h3>
+              <ul id="component-list">
+                  <li id="comp-dna"><strong>DNA Double Helix:</strong> The target genetic material containing the mutation.</li>
+                  <li id="comp-cas9"><strong>Cas9 Enzyme:</strong> The "molecular scissor" that will cut the DNA.</li>
+                  <li id="comp-grna"><strong>Guide RNA (gRNA):</strong> The programmable molecule that directs Cas9 to the precise target sequence.</li>
+              </ul>
           </div>
 
         </div>
         <div class="holodeck-controls">
           <button id="start-mission-btn" class="button">Begin Mission</button>
-          
-          <div id="repair-choice-container" style="display: none;">
+          <div id="repair-choice-container" class="hidden">
             <p><strong>CRITICAL CHOICE:</strong> DNA REPAIR PATHWAY</p>
-            <button id="nhej-btn" class="button repair-btn">NHEJ (Error-Prone)</button>
-            <button id="hdr-btn" class="button repair-btn">HDR (High-Fidelity)</button>
+            <button data-choice="HDR" class="button repair-btn">HDR (High-Fidelity)</button>
+            <button data-choice="NHEJ" class="button repair-btn">NHEJ (Error-Prone)</button>
+            <button data-choice="LIGASE" class="button repair-btn">Use Ligase Only</button>
           </div>
         </div>
       </section>
+      <div id="original-content-bottom">
+        <section class="key-terms-section">
+          <h2>Key Terms</h2>
+          <div class="key-terms-grid">
+            <div class="key-term-card"><h4>CRISPR-Cas9</h4><p>A powerful and precise gene-editing tool derived from bacteria, often described as 'molecular scissors'.</p></div>
+            <div class="key-term-card"><h4>Gene Doping</h4><p>The hypothetical, non-therapeutic use of gene editing to enhance athletic performance.</p></div>
+            <div class="key-term-card"><h4>Somatic Cells</h4><p>Any cell of a living organism other than the reproductive cells. Changes to these are not passed to offspring.</p></div>
+          </div>
+        </section>
+        <section class="quiz-section">
+          <h2>Test Your Knowledge</h2>
+          <form id="gene-editing-quiz">
+            <div class="quiz-question"><p>1. What popular gene-editing tool was adapted from a system found in bacteria?</p><label><input type="radio" name="q1" value="pcr"> PCR</label><label><input type="radio" name="q1" value="crispr"> CRISPR-Cas9</label><label><input type="radio" name="q1" value="electrophoresis"> Gel Electrophoresis</label></div>
+            <div class="quiz-question"><p>2. What is the term for the hypothetical use of gene editing to improve athletic performance?</p><label><input type="radio" name="q2" value="gene-doping"> Gene Doping</label><label><input type="radio" name="q2" value="somatic-therapy"> Somatic Therapy</label><label><input type="radio" name="q2" value="genetic-enhancement"> Genetic Enhancement</label></div>
+            <div class="quiz-question"><p>3. Editing which type of cells would result in changes being passed to future generations?</p><label><input type="radio" name="q3" value="somatic"> Somatic Cells</label><label><input type="radio" name="q3" value="blood"> Blood Cells</label><label><input type="radio" name="q3" value="germline"> Germline Cells</label></div>
+            <button type="submit" class="button">Submit Answers</button>
+          </form>
+          <div id="quiz-results"></div>
+        </section>
+        <section class="sources-section">
+          <h2>Sources & Further Reading</h2>
+          <ol class="sources-list">
+            <li>U.S. National Library of Medicine. (2020). What are genome editing and CRISPR-Cas9?. <em>MedlinePlus</em>. Retrieved from <a href="https://medlineplus.gov/genetics/understanding/genomicresearch/genomeediting/" target="_blank" rel="noopener noreferrer">https://medlineplus.gov/genetics/understanding/genomicresearch/genomeediting/</a></li>
+            <li>Baylis, F., & Darnovsky, M. (2021). Human Germline and Heritable Genome Editing: The Global Conversation. <em>The CRISPR Journal</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8220557/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8220557/</a></li>
+          </ol>
+        </section>
+      </div>
       
-      <article class="article-body">
-        <h2>CRISPR: A Revolution in Biology</h2>
-        <p>Gene editing technologies give scientists the ability to change an organism's DNA by adding, removing, or altering genetic material at particular locations in the genome. The most famous of these is CRISPR-Cas9, which was adapted from a naturally occurring genome editing system used by bacteria as an immune defense.</p>
-          
-        <h3>Therapeutic Potential</h3>
-        <p>The primary focus of gene editing research is on treating and preventing human diseases. It holds incredible promise for curing genetic disorders like sickle cell anemia, Huntington's disease, and cystic fibrosis by correcting the faulty genes that cause them. From an athletic perspective, it could be used to repair genes that predispose players to conditions like ACL tears or certain heart conditions.</p>
-
-        <h3>The Ethical Minefield</h3>
-        <p>The same tool that can fix a broken gene could, in theory, be used to enhance a healthy one. Changes made to egg or sperm cells (germline cells) could be passed to future generations, which brings up a number of ethical challenges, including whether it would be permissible to enhance normal human traits like height or intelligence. This is where the concept of "gene doping" emerges. The use of germline cell and embryo genome editing is currently illegal in many countries due to these ethical and safety concerns.</p>
-      </article>
-
-      <section class="key-terms-section">
-        <h2>Key Terms</h2>
-        <div class="key-terms-grid">
-          <div class="key-term-card">
-            <h4>CRISPR-Cas9</h4>
-            <p>A powerful and precise gene-editing tool derived from bacteria, often described as 'molecular scissors'.</p>
-          </div>
-          <div class="key-term-card">
-            <h4>Gene Doping</h4>
-            <p>The hypothetical, non-therapeutic use of gene editing to enhance athletic performance.</p>
-          </div>
-          <div class="key-term-card">
-            <h4>Somatic Cells</h4>
-            <p>Any cell of a living organism other than the reproductive cells. Changes to these are not passed to offspring.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="quiz-section">
-        <h2>Test Your Knowledge</h2>
-        <form id="gene-editing-quiz">
-          <div class="quiz-question">
-            <p>1. What popular gene-editing tool was adapted from a system found in bacteria?</p>
-            <label><input type="radio" name="q1" value="pcr"> PCR</label>
-            <label><input type="radio" name="q1" value="crispr"> CRISPR-Cas9</label>
-            <label><input type="radio" name="q1" value="electrophoresis"> Gel Electrophoresis</label>
-          </div>
-          <div class="quiz-question">
-            <p>2. What is the term for the hypothetical use of gene editing to improve athletic performance?</p>
-            <label><input type="radio" name="q2" value="gene-doping"> Gene Doping</label>
-            <label><input type="radio" name="q2" value="somatic-therapy"> Somatic Therapy</label>
-            <label><input type="radio" name="q2" value="genetic-enhancement"> Genetic Enhancement</label>
-          </div>
-          <div class="quiz-question">
-            <p>3. Editing which type of cells would result in changes being passed to future generations?</p>
-            <label><input type="radio" name="q3" value="somatic"> Somatic Cells</label>
-            <label><input type="radio" name="q3" value="blood"> Blood Cells</label>
-            <label><input type="radio" name="q3" value="germline"> Germline Cells</label>
-          </div>
-          <button type="submit" class="button">Submit Answers</button>
-        </form>
-        <div id="quiz-results"></div>
-      </section>
-
-      <section class="sources-section">
-        <h2>Sources & Further Reading</h2>
-        <ol class="sources-list">
-          <li>
-            U.S. National Library of Medicine. (2020). What are genome editing and CRISPR-Cas9?. <em>MedlinePlus</em>. Retrieved from <a href="https://medlineplus.gov/genetics/understanding/genomicresearch/genomeediting/" target="_blank" rel="noopener noreferrer">https://medlineplus.gov/genetics/understanding/genomicresearch/genomeediting/</a>
-          </li>
-          <li>
-            Baylis, F., & Darnovsky, M. (2021). Human Germline and Heritable Genome Editing: The Global Conversation. <em>The CRISPR Journal</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8220557/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8220557/</a>
-          </li>
-        </ol>
-      </section>
     </main>
 
     <footer id="about" class="container">
@@ -171,145 +177,10 @@
       <p class="copyright">© 2025 BioMech</p>
     </footer>
 
+    <script src="crispr-simulator.js"></script>
     <script>
-      // Navigation scroll effect
-      const nav = document.querySelector('nav');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
-        }
-      });
-
-      // --- CRISPR SIMULATOR LOGIC ---
-      document.addEventListener('DOMContentLoaded', () => {
-        const startBtn = document.getElementById('start-mission-btn');
-        const dnaStrandEl = document.getElementById('dna-strand');
-        const pamScanner = document.getElementById('pam-scanner');
-        const pamLabel = document.querySelector('.pam-label');
-        const enzymeEl = document.getElementById('cas9-enzyme-v2');
-        const gRNAEl = document.getElementById('gRNA-strand');
-        const donorTemplateEl = document.getElementById('donor-template');
-        const workspaceMsg = document.getElementById('workspace-message');
-        const repairChoiceContainer = document.getElementById('repair-choice-container');
-        const nhejBtn = document.getElementById('nhej-btn');
-        const hdrBtn = document.getElementById('hdr-btn');
-        const logList = document.getElementById('science-log-list');
-
-        let missionActive = false;
-
-        const log = (message, status = 'pending') => {
-            if (logList.children[0] && logList.children[0].textContent === 'Awaiting Mission Start...') {
-                logList.innerHTML = '';
-            }
-            const li = document.createElement('li');
-            li.className = status;
-            li.innerHTML = message;
-            logList.appendChild(li);
-            logList.scrollTop = logList.scrollHeight;
-        };
-
-        const showMessage = (text, type) => {
-            workspaceMsg.textContent = text;
-            workspaceMsg.className = `workspace-message-visible ${type}`;
-        };
-
-        const hideMessage = () => {
-            workspaceMsg.className = 'workspace-message-hidden';
-        };
-
-        const resetSimulation = () => {
-            missionActive = false;
-            startBtn.disabled = false;
-            startBtn.style.display = 'block';
-            repairChoiceContainer.style.display = 'none';
-
-            dnaStrandEl.innerHTML = `...CCTG<span class="error-text">GTG</span>GAGG...`;
-            dnaStrandEl.classList.remove('cut', 'repaired');
-            
-            pamScanner.style.animation = 'none';
-            pamLabel.style.opacity = '0';
-            enzymeEl.style.animation = 'none';
-            gRNAEl.style.animation = 'none';
-            donorTemplateEl.style.animation = 'none';
-            
-            logList.innerHTML = '<li class="pending">Awaiting Mission Start...</li>';
-            hideMessage();
-        };
-
-        startBtn.addEventListener('click', () => {
-            if (missionActive) return;
-            missionActive = true;
-            startBtn.disabled = true;
-
-            log('Locating target protospacer adjacent motif (PAM)...', 'processing');
-            pamScanner.style.animation = 'scan 2s linear forwards';
-            
-            setTimeout(() => {
-                pamLabel.style.opacity = '1';
-                log('PAM sequence <span class="success-text">TGG</span> identified.', 'success');
-                log('Synthesizing and loading guide RNA...', 'processing');
-                gRNAEl.style.animation = 'load-grna 1.5s forwards';
-            }, 2000);
-
-            setTimeout(() => {
-                log('Deploying Cas9 Nuclease...', 'processing');
-                enzymeEl.style.animation = 'deploy-cas9 2s forwards';
-            }, 3500);
-            
-            setTimeout(() => {
-                log('Scanning for target sequence...', 'processing');
-            }, 5500);
-            
-            setTimeout(() => {
-                dnaStrandEl.classList.add('melt');
-                log('Target found. Unwinding DNA...', 'success');
-                log('Performing double-strand break...', 'processing');
-            }, 6500);
-
-            setTimeout(() => {
-                dnaStrandEl.classList.add('cut');
-                enzymeEl.classList.add('cut-effect');
-                log('CUT CONFIRMED. DNA severed.', 'error');
-                showMessage('CRITICAL CHOICE REQUIRED', 'warning');
-                startBtn.style.display = 'none';
-                repairChoiceContainer.style.display = 'flex';
-            }, 7500);
-        });
-
-        nhejBtn.addEventListener('click', () => {
-            log('NHEJ pathway initiated. Error-prone repair resulted in random indel.', 'error');
-            dnaStrandEl.innerHTML = `...CCTG<span class="error-text">G---G</span>GAGG...`;
-            showMessage('MISSION FAILED: Gene Knockout', 'error');
-            repairChoiceContainer.style.display = 'none';
-            setTimeout(resetSimulation, 4000);
-        });
-        
-        hdrBtn.addEventListener('click', () => {
-            log('HDR pathway initiated. Deploying donor template...', 'processing');
-            repairChoiceContainer.style.display = 'none';
-            donorTemplateEl.style.animation = 'deploy-donor 2s forwards';
-
-            setTimeout(() => {
-                dnaStrandEl.classList.add('repaired');
-                dnaStrandEl.innerHTML = `...CCTG<span class="success-text">GAG</span>GAGG...`;
-                log('DNA repaired using template.', 'success');
-                showMessage('MISSION SUCCESSFUL', 'success');
-                enzymeEl.style.animation = 'retract-cas9 2s forwards';
-                gRNAEl.style.animation = 'retract-cas9 2s forwards';
-            }, 2000);
-
-            setTimeout(resetSimulation, 6000);
-        });
-
-        resetSimulation(); // Initialize
-      });
-
-      // --- QUIZ LOGIC ---
       const quizForm = document.getElementById('gene-editing-quiz');
       const resultsDiv = document.getElementById('quiz-results');
-
       quizForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const correctAnswers = { q1: 'crispr', q2: 'gene-doping', q3: 'germline' };
@@ -324,6 +195,25 @@
         resultsDiv.style.display = 'block';
         resultsDiv.className = (score === totalQuestions) ? 'correct' : 'incorrect';
       });
+      // --- Auto-Hiding Navigation Bar on Scroll ---
+let lastScrollTop = 0;
+const navBar = document.querySelector('nav');
+
+window.addEventListener('scroll', function() {
+    // Get the current scroll position
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // Scrolling Down
+        navBar.classList.add('nav-up');
+    } else {
+        // Scrolling Up
+        navBar.classList.remove('nav-up');
+    }
+    
+    // Update the last scroll position
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+});
     </script>
   </body>
 </html>

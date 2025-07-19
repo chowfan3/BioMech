@@ -45,7 +45,7 @@
       </div>
     </nav>
     
-    <header class="article-header-banner" style="--bg-image: url('https://images.unsplash.com/photo-1552868696-3c076292833a?q=80&w=2070&auto=format&fit=crop');">
+    <header class="article-header-banner" style="--bg-image: url('images/h1.webp');">
       <div class="article-header-content">
         <h1>The Athlete's Heart</h1>
         <p class="article-summary">Explore the remarkable structural and functional changes the heart undergoes in response to elite-level training.</p>
@@ -154,6 +154,25 @@
         resultsDiv.style.display = 'block';
         resultsDiv.className = (score === totalQuestions) ? 'correct' : 'incorrect';
       });
+      // --- Auto-Hiding Navigation Bar on Scroll ---
+let lastScrollTop = 0;
+const navBar = document.querySelector('nav');
+
+window.addEventListener('scroll', function() {
+    // Get the current scroll position
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // Scrolling Down
+        navBar.classList.add('nav-up');
+    } else {
+        // Scrolling Up
+        navBar.classList.remove('nav-up');
+    }
+    
+    // Update the last scroll position
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+});
     </script>
   </body>
 </html>
