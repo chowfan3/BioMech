@@ -1,22 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GZRM26MFJH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GZRM26MFJH');
-</script>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M6BXXZ4B');</script>
-<!-- End Google Tag Manager -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>How Muscles Work | BioMech</title>
@@ -24,11 +8,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="icon" href="images/BioMechLogo.png" />
     <link rel="stylesheet" href="/style.css" />
   </head>
+
+  
   <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6BXXZ4B"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
     <nav>
       <a href="index.html" class="nav-brand">
         <img src="images/BioMechLogo.png" alt="BioMech Logo" class="logo-image">
@@ -47,7 +30,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <div class="dropdown">
-          <a href="science.html" class="nav-link">The Science</a>
+         <a href="science.html" class="nav-link">The Science</a>
           <div class="dropdown-content">
             <a href="genetics.html">Genetics</a>
             <a href="muscles.html">How Muscles Work</a>
@@ -58,8 +41,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="energy-systems.html">Energy Systems</a>
             <a href="cardiac-adaptations.html">Cardiac Adaptations</a>
             <a href="motor-learning.html">Motor Learning</a>
-          
-        </div>
+          </div>
         </div>
         <a href="index.html#about" class="nav-link">About</a>
       </div>
@@ -78,9 +60,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Every movement an athlete makes is powered by muscles. The mechanism behind this is the sliding filament theory, which states that muscle contraction occurs when actin (thin filaments) and myosin (thick filaments) slide past one another. This action shortens the muscle's individual contractile units, known as sarcomeres, generating the force that moves our bones.</p>
         
         <h3>The Molecular Machinery</h3>
-        <p>Myosin acts as a molecular motor. When a muscle receives a signal from a nerve, the heads of the myosin filaments attach to the actin filaments, forming "cross-bridges." Using energy from ATP (the body's energy currency), the myosin heads pull the actin filaments inward. This cycle of attaching, pulling, and detaching occurs thousands of times in a fraction of a second, resulting in a smooth, controlled muscle contraction. The collective force of millions of these molecular interactions allows athletes to perform incredible feats of strength.</p>
+        <p>Myosin acts as a molecular motor. When a muscle receives a signal from a nerve, the heads of the myosin filaments attach to the a ctin filaments, forming "cross-bridges." Using energy from ATP (the body's energy currency), the myosin heads pull the actin filaments inward. This cycle of attaching, pulling, and detaching occurs thousands of times in a fraction of a second, resulting in a smooth, controlled muscle contraction. The collective force of millions of these molecular interactions allows athletes to perform incredible feats of strength.</p>
       </article>
+      
 
+      <section class="interactive-3d-section">
+        <h3>Interactive Sarcomere Model</h3>
+        <p>Drag with your mouse to rotate and zoom. Use the buttons below to see the contraction cycle.</p>
+        
+        <div id="sarcomere-container">
+            <canvas id="3d-canvas"></canvas>
+            <div class="sarcomere-controls">
+                <button id="contract-btn" class="button">Contract</button>
+                <button id="relax-btn" class="button">Relax</button>
+            </div>
+        </div>
+      </section>
       <section class="key-terms-section">
         <h2>Key Terms</h2>
         <div class="key-terms-grid">
@@ -144,8 +139,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="copyright">© 2025 BioMech</p>
     </footer>
 
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+            }
+        }
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/20.0.3/tween.umd.js"></script>
+    
+    <script type="module" src="sarcomere-viewer.js"></script>
+
     <script>
-      // Navigation scroll effect
       const nav = document.querySelector('nav');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -155,7 +162,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
       });
 
-      // QUIZ LOGIC
       const quizForm = document.getElementById('muscles-quiz');
       const resultsDiv = document.getElementById('quiz-results');
 
@@ -187,25 +193,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           resultsDiv.className = 'incorrect';
         }
       });
-      // --- Auto-Hiding Navigation Bar on Scroll ---
-let lastScrollTop = 0;
-const navBar = document.querySelector('nav');
-
-window.addEventListener('scroll', function() {
-    // Get the current scroll position
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
-        // Scrolling Down
-        navBar.classList.add('nav-up');
-    } else {
-        // Scrolling Up
-        navBar.classList.remove('nav-up');
-    }
-    
-    // Update the last scroll position
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
-});
     </script>
   </body>
 </html>
