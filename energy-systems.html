@@ -66,7 +66,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </nav>
     
-    <header class="article-header-banner" style="--bg-image: url('https://images.unsplash.com/photo-1579126038374-6064e9370f2f?q=80&w=2070&auto=format&fit=crop');">
+    <header class="article-header-banner" style="--bg-image: url('images/mito.jpeg');">
       <div class="article-header-content">
         <h1>The Cellular Engine</h1>
         <p class="article-summary">Explore the three distinct energy systems that replenish ATP to fuel every type of athletic activity, from a 1-second punch to a 2-hour marathon.</p>
@@ -88,6 +88,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>For any long-duration activity, the body relies on the oxidative system. This complex system uses oxygen to break down carbohydrates, fats, and even proteins to produce vast amounts of ATP. While it is the slowest system to ramp up, its energy supply is virtually limitless, making it the primary source for endurance events like marathons, cycling, and long swims.</p>
       </article>
 
+      
+
+ <section class="interactive-diagram">
+        <h3>The Three Energy Systems</h3>
+        <p>Click each system to learn how it generates ATP for different types of activity.</p>
+        
+        <div class="diagram-controls">
+          <button class="control-btn active" data-target="atp-pc">ATP-PC System (Explosive)</button>
+          <button class="control-btn" data-target="glycolytic">Glycolytic System (Short-Term)</button>
+          <button class="control-btn" data-target="oxidative">Oxidative System (Long-Term)</button>
+        </div>
+        
+        <div class="diagram-content">
+          <div id="atp-pc" class="content-panel active">
+            <img src="images/phosphagen-diagram.png" alt="Diagram of the ATP-PC energy system">
+            <h4>The Phosphagen System</h4>
+            <p>This system provides immediate energy for ultra-high-intensity activities lasting up to 10-15 seconds. It uses existing ATP and creatine phosphate (PC) stores directly within the muscles. It's the fastest way to regenerate ATP but is extremely limited.</p>
+          </div>
+          
+          <div id="glycolytic" class="content-panel">
+            <img src="images/glycolytic-diagram.png" alt="Diagram of the Glycolytic energy system">
+            <h4>The Glycolytic System</h4>
+            <p>When the phosphagen system runs out, the glycolytic system takes over for activities lasting from 30 seconds to about 2 minutes. It breaks down glucose (sugar) without oxygen to produce ATP. This process is fast but produces lactic acid as a byproduct, leading to muscle fatigue.</p>
+          </div>
+          
+          <div id="oxidative" class="content-panel">
+            <img src="images/oxidative-diagram.png" alt="Diagram of the Oxidative energy system">
+            <h4>The Oxidative System</h4>
+            <p>This is the primary energy source for long-duration, low-to-moderate intensity activities. It uses oxygen to break down carbohydrates and fats to produce vast amounts of ATP. While it's the most efficient system, it's also the slowest to respond.</p>
+          </div>
+        </div>
+      </section>
+    <main class="article-content-wrapper">
+      <article class="article-body">
+        
+
+      </article>
+
+      </main>
       <section class="key-terms-section">
         <h2>Key Terms</h2>
         <div class="key-terms-grid">
@@ -151,52 +190,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="copyright">© 2025 BioMech</p>
     </footer>
 
-    <script>
-      const nav = document.querySelector('nav');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
-        }
-      });
-
-      const quizForm = document.getElementById('energy-quiz');
-      const resultsDiv = document.getElementById('quiz-results');
-
-      quizForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const correctAnswers = { q1: 'phosphagen', q2: 'glycolytic', q3: 'oxidative' };
-        let score = 0;
-        const totalQuestions = Object.keys(correctAnswers).length;
-        for (const question in correctAnswers) {
-          if (quizForm.elements[question].value === correctAnswers[question]) {
-            score++;
-          }
-        }
-        resultsDiv.innerHTML = `You scored ${score} out of ${totalQuestions}!`;
-        resultsDiv.style.display = 'block';
-        resultsDiv.className = (score === totalQuestions) ? 'correct' : 'incorrect';
-      });
-      // --- Auto-Hiding Navigation Bar on Scroll ---
-let lastScrollTop = 0;
-const navBar = document.querySelector('nav');
-
-window.addEventListener('scroll', function() {
-    // Get the current scroll position
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
-        // Scrolling Down
-        navBar.classList.add('nav-up');
-    } else {
-        // Scrolling Up
-        navBar.classList.remove('nav-up');
-    }
-    
-    // Update the last scroll position
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
-});
-    </script>
+        <script src="main.js"></script>
+   
   </body>
 </html>

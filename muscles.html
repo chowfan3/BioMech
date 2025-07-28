@@ -4,12 +4,66 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>How Muscles Work | BioMech</title>
-    <meta name="description" content="A microscopic look at how muscles function, based on the sliding filament theory and the roles of actin and myosin." />
-    <link rel="icon" href="images/BioMechLogo.png" />
     <link rel="stylesheet" href="/style.css" />
-  </head>
+    
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/",
+                "@tweenjs/tween.js": "https://unpkg.com/@tweenjs/tween.js@23.1.1/dist/tween.esm.js"
+            }
+        }
+    </script>
 
-  
+    <style>
+        #sarcomere-container { 
+            width: 100%; 
+            height: 500px;
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        #sarcomere-container canvas { 
+            display: block; 
+        }
+
+        #info-box {
+            display: none; 
+            position: fixed;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+            border-radius: 8px;
+            width: 280px;
+            font-family: sans-serif;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            pointer-events: none;
+        }
+        #info-box h4 { margin-top: 0; margin-bottom: 8px; color: #00aaff; }
+
+        #info-box::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+        }
+
+        .info-box-bottom::after {
+            top: 100%;
+            left: 20px;
+            border-top-color: #333;
+        }
+
+        .info-box-top::after {
+            bottom: 100%;
+            left: 20px;
+            border-bottom-color: #333;
+        }
+    </style>
+  </head>
   <body>
 
     <nav>
@@ -20,28 +74,11 @@
       <div class="nav-links">
         <div class="dropdown">
           <a href="index.html#profiles" class="nav-link">Profiles</a>
-          <div class="dropdown-content">
-            <a href="lebron.html">LeBron James</a>
-            <a href="serena.html">Serena Williams</a>
-            <a href="ronaldo.html">Cristiano Ronaldo</a>
-            <a href="subingtian.html">Su Bingtian</a>
-            <a href="muhammadali.html">Muhammad Ali</a>
-            <a href="michaelphelps.html">Michael Phelps</a>
-          </div>
+          <div class="dropdown-content"><a href="lebron.html">LeBron James</a><a href="serena.html">Serena Williams</a><a href="ronaldo.html">Cristiano Ronaldo</a><a href="subingtian.html">Su Bingtian</a><a href="muhammadali.html">Muhammad Ali</a><a href="michaelphelps.html">Michael Phelps</a></div>
         </div>
         <div class="dropdown">
          <a href="science.html" class="nav-link">The Science</a>
-          <div class="dropdown-content">
-            <a href="genetics.html">Genetics</a>
-            <a href="muscles.html">How Muscles Work</a>
-            <a href="gene-editing.html">Gene Editing</a>
-            <a href="tissue-engineering.html">Tissue Engineering</a>
-            <a href="recovery.html">The Engineering of Recovery</a>
-            <a href="data.html">The Data-Driven Athlete</a>
-            <a href="energy-systems.html">Energy Systems</a>
-            <a href="cardiac-adaptations.html">Cardiac Adaptations</a>
-            <a href="motor-learning.html">Motor Learning</a>
-          </div>
+          <div class="dropdown-content"><a href="genetics.html">Genetics</a><a href="muscles.html">How Muscles Work</a><a href="gene-editing.html">Gene Editing</a><a href="tissue-engineering.html">Tissue Engineering</a><a href="recovery.html">The Engineering of Recovery</a><a href="data.html">The Data-Driven Athlete</a><a href="energy-systems.html">Energy Systems</a><a href="cardiac-adaptations.html">Cardiac Adaptations</a><a href="motor-learning.html">Motor Learning</a></div>
         </div>
         <a href="index.html#about" class="nav-link">About</a>
       </div>
@@ -55,144 +92,236 @@
     </header>
 
     <main class="article-content-wrapper">
-      <article class="article-body">
-        <h2>The Sliding Filament Theory</h2>
-        <p>Every movement an athlete makes is powered by muscles. The mechanism behind this is the sliding filament theory, which states that muscle contraction occurs when actin (thin filaments) and myosin (thick filaments) slide past one another. This action shortens the muscle's individual contractile units, known as sarcomeres, generating the force that moves our bones.</p>
-        
-        <h3>The Molecular Machinery</h3>
-        <p>Myosin acts as a molecular motor. When a muscle receives a signal from a nerve, the heads of the myosin filaments attach to the a ctin filaments, forming "cross-bridges." Using energy from ATP (the body's energy currency), the myosin heads pull the actin filaments inward. This cycle of attaching, pulling, and detaching occurs thousands of times in a fraction of a second, resulting in a smooth, controlled muscle contraction. The collective force of millions of these molecular interactions allows athletes to perform incredible feats of strength.</p>
-      </article>
-      
+        <article class="article-body">
+            <h2>The Sliding Filament Theory</h2>
+            <p>Every movement an athlete makes is powered by muscles. The mechanism behind this is the sliding filament theory, which states that muscle contraction occurs when actin (thin filaments) and myosin (thick filaments) slide past one another. This action shortens the muscle's individual contractile units, known as sarcomeres, generating the force that moves our bones.</p>
+            <h3>The Molecular Machinery</h3>
+            <p>Myosin acts as a molecular motor. When a muscle receives a signal from a nerve, the heads of the myosin filaments attach to the actin filaments, forming "cross-bridges." Using energy from ATP (the body's energy currency), the myosin heads pull the actin filaments inward. This cycle of attaching, pulling, and detaching occurs thousands of times in a fraction of a second, resulting in a smooth, controlled muscle contraction. The collective force of millions of these molecular interactions allows athletes to perform incredible feats of strength.</p>
+        </article>
 
-      <section class="interactive-3d-section">
-        <h3>Interactive Sarcomere Model</h3>
-        <p>Drag with your mouse to rotate and zoom. Use the buttons below to see the contraction cycle.</p>
-        
-        <div id="sarcomere-container">
-            <canvas id="3d-canvas"></canvas>
-            <div class="sarcomere-controls">
-                <button id="contract-btn" class="button">Contract</button>
-                <button id="relax-btn" class="button">Relax</button>
+        <section class="interactive-3d-section">
+            <h3>Interactive Sarcomere Model</h3>
+            <p>Click each part to learn more.</p>
+            <div id="sarcomere-container">
             </div>
-        </div>
-      </section>
-      <section class="key-terms-section">
-        <h2>Key Terms</h2>
-        <div class="key-terms-grid">
-          <div class="key-term-card">
-            <h4>Actin</h4>
-            <p>A protein that forms the thin, rope-like filaments in muscle fibers.</p>
-          </div>
-          <div class="key-term-card">
-            <h4>Myosin</h4>
-            <p>A motor protein that forms the thick filaments, featuring "heads" that pull the actin filaments.</p>
-          </div>
-          <div class="key-term-card">
-            <h4>Sarcomere</h4>
-            <p>The basic contractile unit of a muscle fiber, composed of overlapping actin and myosin filaments.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="quiz-section">
-        <h2>Test Your Knowledge</h2>
-        <form id="muscles-quiz">
-          <div class="quiz-question">
-            <p>1. According to the sliding filament theory, which two protein filaments slide past one another to cause muscle contraction?</p>
-            <label><input type="radio" name="q1" value="collagen-elastin"> Collagen and Elastin</label>
-            <label><input type="radio" name="q1" value="actin-myosin"> Actin and Myosin</label>
-            <label><input type="radio" name="q1" value="keratin-fibrin"> Keratin and Fibrin</label>
-          </div>
-          <div class="quiz-question">
-            <p>2. What is the name of the basic contractile unit of a muscle fiber?</p>
-            <label><input type="radio" name="q2" value="neuron"> Neuron</label>
-            <label><input type="radio" name="q2" value="tendon"> Tendon</label>
-            <label><input type="radio" name="q2" value="sarcomere"> Sarcomere</label>
-          </div>
-          <div class="quiz-question">
-            <p>3. What molecule provides the energy for the myosin heads to pull the actin filaments?</p>
-            <label><input type="radio" name="q3" value="atp"> ATP (Adenosine Triphosphate)</label>
-            <label><input type="radio" name="q3" value="dna"> DNA</label>
-            <label><input type="radio" name="q3" value="glucose"> Glucose</label>
-          </div>
-          <button type="submit" class="button">Submit Answers</button>
-        </form>
-        <div id="quiz-results"></div>
-      </section>
+        <section class="key-terms-section">
+            <h2>Key Terms</h2>
+            <div class="key-terms-grid"><div class="key-term-card"><h4>Actin</h4><p>A protein that forms the thin, rope-like filaments in muscle fibers.</p></div><div class="key-term-card"><h4>Myosin</h4><p>A motor protein that forms the thick filaments, featuring "heads" that pull the actin filaments.</p></div><div class="key-term-card"><h4>Sarcomere</h4><p>The basic contractile unit of a muscle fiber, composed of overlapping actin and myosin filaments.</p></div></div>
+        </section>
 
-      <section class="sources-section">
-        <h2>Sources & Further Reading</h2>
-        <ol class="sources-list">
-          <li>
-            Huxley, H., & Hanson, J. (1954). Changes in the Cross-Striations of Muscle during Contraction and Stretch and their Structural Interpretation. <em>Nature</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5642817/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5642817/</a>
-          </li>
-          <li>
-            Sweeney, H. L., & Houdusse, A. (2010). The Myosin Family. <em>Cold Spring Harbor Perspectives in Biology</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2828142/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2828142/</a>
-          </li>
-        </ol>
-      </section>
+        <section class="quiz-section">
+            <h2>Test Your Knowledge</h2>
+            <form id="muscles-quiz">
+              <div class="quiz-question"><p>1. According to the sliding filament theory, which two protein filaments slide past one another to cause muscle contraction?</p><label><input type="radio" name="q1" value="collagen-elastin"> Collagen and Elastin</label><label><input type="radio" name="q1" value="actin-myosin"> Actin and Myosin</label><label><input type="radio" name="q1" value="keratin-fibrin"> Keratin and Fibrin</label></div>
+              <div class="quiz-question"><p>2. What is the name of the basic contractile unit of a muscle fiber?</p><label><input type="radio" name="q2" value="neuron"> Neuron</label><label><input type="radio" name="q2" value="tendon"> Tendon</label><label><input type="radio" name="q2" value="sarcomere"> Sarcomere</label></div>
+              <div class="quiz-question"><p>3. What molecule provides the energy for the myosin heads to pull the actin filaments?</p><label><input type="radio" name="q3" value="atp"> ATP (Adenosine Triphosphate)</label><label><input type="radio" name="q3" value="dna"> DNA</label><label><input type="radio" name="q3" value="glucose"> Glucose</label></div>
+              <button type="submit" class="button">Submit Answers</button>
+            </form>
+            <div id="quiz-results"></div>
+        </section>
+
+        <section class="sources-section">
+          <h2>Sources & Further Reading</h2>
+          <ol class="sources-list"><li>Huxley, H., & Hanson, J. (1954). Changes in the Cross-Striations of Muscle during Contraction and Stretch and their Structural Interpretation. <em>Nature</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5642817/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5642817/</a></li><li>Sweeney, H. L., & Houdusse, A. (2010). The Myosin Family. <em>Cold Spring Harbor Perspectives in Biology</em>. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2828142/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2828142/</a></li></ol>
+        </section>
     </main>
+    
+    <div id="info-box">
+        <h4 id="info-title"></h4>
+        <p id="info-description"></p>
+    </div>
 
     <footer id="about" class="container">
         <h2>About This Project</h2>
-        <p>BioMech is a passion project by a future Bioengineering major. It deconstructs elite athletes not just as players, but as high-performance biological systems, exploring how principles of mechanical engineering, materials science, and biotechnology are applied to push the boundaries of human potential.</p>
-        <p class="copyright">© 2025 BioMech</p>
+        <p>BioMech is a passion project by a future Bioengineering major. It deconstructs elite athletes not just as players, but as high-performance biological systems, exploring how principles of mechanical engineering, materials science, and biotechnology are applied to push the boundaries of human potential.</p><p class="copyright">© 2025 BioMech</p>
     </footer>
 
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+    <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+    import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
+    import * as TWEEN from '@tweenjs/tween.js';
+
+    const partInfo = {
+        'myosin': { title: 'Myosin Filament (Body)', description: 'The main body of the thick filament, which provides the structural core that the myosin heads attach to.' },
+        'myosin_head': { title: 'Myosin Head', description: 'This is the motor part of the myosin. It binds to actin and uses energy from ATP to pivot, pulling the thin filament inward to cause contraction.' },
+        'actin1': { title: 'Actin Filament', description: 'Actin forms the "track" of the thin filament. It provides the binding sites for the myosin heads to attach to during muscle contraction.' },
+        'actin2': { title: 'Actin Filament', description: 'Actin forms the "track" of the thin filament. It provides the binding sites for the myosin heads to attach to during muscle contraction.' },
+        'tropomyosin': { title: 'Tropomyosin', description: 'This regulatory protein is a long strand that wraps around the actin filament, covering the myosin-binding sites when the muscle is in a relaxed state.' },
+
+    };
+
+    const container = document.getElementById('sarcomere-container'); 
+    if (container) {
+        const scene = new THREE.Scene();
+        // --- UPDATED: A darker, more neutral background color ---
+        scene.background = new THREE.Color(0x333333); 
+
+        const camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 100);
+        // --- UPDATED: Camera is zoomed in even more ---
+        camera.position.set(0, 0, 1.25);
+        
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+        const composer = new EffectComposer(renderer);
+        composer.addPass(new RenderPass(scene, camera));
+
+        const outlinePass = new OutlinePass(new THREE.Vector2(container.clientWidth, container.clientHeight), scene, camera);
+        outlinePass.edgeStrength = 5;
+        outlinePass.edgeGlow = 0.5;
+        outlinePass.edgeThickness = 1.5;
+        // --- UPDATED: Outline is white again for contrast on the dark background ---
+        outlinePass.visibleEdgeColor.set('#ffffff'); 
+        composer.addPass(outlinePass);
+        
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        // --- UPDATED: Target is shifted to the right to visually center the model ---
+        controls.target.set(0, 0, 0); 
+        
+       // --- UPDATED: Lighting is brighter ---
+        // CHANGED: Increased ambient light from 0.9 to 1.5 for better overall brightness.
+        scene.add(new THREE.AmbientLight(0xffffff, 1.5)); 
+        
+        // CHANGED: Increased directional light from 1.5 to 2.5 for stronger highlights.
+        const dirLight = new THREE.DirectionalLight(0xffffff, 2.5); 
+        dirLight.position.set(5, 10, 7.5);
+        scene.add(dirLight);
+
+        const raycaster = new THREE.Raycaster();
+        const pointer = new THREE.Vector2();
+        let wholeModel = new THREE.Group();
+
+        const gltfLoader = new GLTFLoader();
+        gltfLoader.load('sarcomere_model.glb', (gltf) => {
+            wholeModel = gltf.scene;
+            scene.add(wholeModel);
+        });
+        
+        const infoBox = document.getElementById('info-box');
+        const infoTitle = document.getElementById('info-title');
+        const infoDescription = document.getElementById('info-description');
+
+        window.addEventListener('scroll', () => {
+            if (infoBox.style.display !== 'none') {
+                infoBox.style.display = 'none';
             }
+        });
+
+        container.addEventListener('pointermove', (e) => {
+            const rect = container.getBoundingClientRect();
+            pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+            pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+        });
+
+        container.addEventListener('click', (event) => {
+            if (outlinePass.selectedObjects.length > 0) {
+                const selectedObject = outlinePass.selectedObjects[0];
+                const data = partInfo[selectedObject.name];
+                
+                if (data) {
+                    infoTitle.innerText = data.title;
+                    infoDescription.innerText = data.description;
+                    
+                    const popUpHeight = infoBox.offsetHeight;
+                    const popUpWidth = infoBox.offsetWidth;
+                    let top = event.clientY + 20;
+                    let left = event.clientX - (popUpWidth / 2);
+
+                    if (top + popUpHeight > window.innerHeight) {
+                        top = event.clientY - popUpHeight - 20;
+                        infoBox.className = 'info-box-top';
+                    } else {
+                        infoBox.className = 'info-box-bottom';
+                    }
+                    
+                    infoBox.style.top = `${top}px`;
+                    infoBox.style.left = `${left}px`;
+                    infoBox.style.display = 'block';
+                }
+            } else {
+                infoBox.style.display = 'none';
+            }
+        });
+        
+       const quizForm = document.getElementById('muscles-quiz');
+        const resultsDiv = document.getElementById('quiz-results');
+
+        if (quizForm) {
+            quizForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                const correctAnswers = { q1: 'actin-myosin', q2: 'sarcomere', q3: 'atp' };
+                let score = 0;
+                const totalQuestions = Object.keys(correctAnswers).length;
+                const formData = new FormData(quizForm);
+
+                for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
+                    if (formData.get(question) === correctAnswer) {
+                        score++;
+                    }
+                }
+
+                // CHANGED: This section now matches the genetics page functionality
+                resultsDiv.innerHTML = `You scored ${score} out of ${totalQuestions}!`;
+                resultsDiv.style.display = 'block';
+                resultsDiv.className = (score === totalQuestions) ? 'correct' : 'incorrect';
+            });
         }
-    </script>
+
+        function animate(time) {
+            requestAnimationFrame(animate);
+
+            raycaster.setFromCamera(pointer, camera);
+            const intersects = raycaster.intersectObjects(wholeModel.children, true);
+            if (intersects.length > 0) {
+                outlinePass.selectedObjects = [intersects[0].object];
+            } else {
+                outlinePass.selectedObjects = [];
+            }
+            
+            controls.update();
+            TWEEN.update(time);
+            composer.render();
+        }
+        animate();
+
+        new ResizeObserver(() => {
+            const { clientWidth, clientHeight } = container;
+            camera.aspect = clientWidth / clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(clientWidth, clientHeight);
+            composer.setSize(clientWidth, clientHeight);
+        }).observe(container);
+    }
+    // --- Auto-Hiding Navigation Bar on Scroll ---
+let lastScrollTop = 0;
+const navBar = document.querySelector('nav');
+
+window.addEventListener('scroll', function() {
+    // Get the current scroll position
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // Scrolling Down
+        navBar.classList.add('nav-up');
+    } else {
+        // Scrolling Up
+        navBar.classList.remove('nav-up');
+    }
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/20.0.3/tween.umd.js"></script>
-    
-    <script type="module" src="sarcomere-viewer.js"></script>
+    // Update the last scroll position
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+});
+</script>
 
-    <script>
-      const nav = document.querySelector('nav');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
-        }
-      });
-
-      const quizForm = document.getElementById('muscles-quiz');
-      const resultsDiv = document.getElementById('quiz-results');
-
-      quizForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const correctAnswers = {
-          q1: 'actin-myosin',
-          q2: 'sarcomere',
-          q3: 'atp'
-        };
-
-        let score = 0;
-        const totalQuestions = Object.keys(correctAnswers).length;
-
-        for (const question in correctAnswers) {
-          const userAnswer = quizForm.elements[question].value;
-          if (userAnswer === correctAnswers[question]) {
-            score++;
-          }
-        }
-
-        resultsDiv.innerHTML = `You scored ${score} out of ${totalQuestions}!`;
-        resultsDiv.style.display = 'block';
-
-        if (score === totalQuestions) {
-          resultsDiv.className = 'correct';
-        } else {
-          resultsDiv.className = 'incorrect';
-        }
-      });
-    </script>
   </body>
 </html>
