@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GZRM26MFJH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZRM26MFJH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-GZRM26MFJH');
-</script>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M6BXXZ4B');</script>
-<!-- End Google Tag Manager -->
+      gtag('config', 'G-GZRM26MFJH');
+    </script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M6BXXZ4B');</script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>The Brain's Blueprint: Motor Learning | BioMech</title>
@@ -25,11 +22,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6BXXZ4B"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6BXXZ4B"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <nav>
       <a href="index.html" class="nav-brand">
         <img src="images/BioMechLogo.png" alt="BioMech Logo" class="logo-image">
@@ -128,9 +122,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <label><input type="radio" name="q3" value="ossification"> Ossification</label>
             <label><input type="radio" name="q3" value="glycolysis"> Glycolysis</label>
           </div>
-          <button type="submit" class="button">Submit Answers</button>
+          <button class="cta-button">Submit Answers</button>
         </form>
-        <div id="quiz-results"></div>
+        <div class="quiz-results"></div>
       </section>
 
       <section class="sources-section">
@@ -146,58 +140,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </section>
     </main>
 
-    <footer id="about" class="container">
-      <h2>About This Project</h2>
-      <p>BioMech is a passion project by a future Bioengineering major...</p>
-      <p class="copyright">© 2025 BioMech</p>
-    </footer>
+    <div id="footer-placeholder"></div>
 
-    <script>
-      const nav = document.querySelector('nav');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
-        }
-      });
-
-      const quizForm = document.getElementById('motor-quiz');
-      const resultsDiv = document.getElementById('quiz-results');
-
-      quizForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const correctAnswers = { q1: 'brain', q2: 'cerebellum', q3: 'myelination' };
-        let score = 0;
-        const totalQuestions = Object.keys(correctAnswers).length;
-        for (const question in correctAnswers) {
-          if (quizForm.elements[question].value === correctAnswers[question]) {
-            score++;
-          }
-        }
-        resultsDiv.innerHTML = `You scored ${score} out of ${totalQuestions}!`;
-        resultsDiv.style.display = 'block';
-        resultsDiv.className = (score === totalQuestions) ? 'correct' : 'incorrect';
-      });
-      // --- Auto-Hiding Navigation Bar on Scroll ---
-let lastScrollTop = 0;
-const navBar = document.querySelector('nav');
-
-window.addEventListener('scroll', function() {
-    // Get the current scroll position
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
-        // Scrolling Down
-        navBar.classList.add('nav-up');
-    } else {
-        // Scrolling Up
-        navBar.classList.remove('nav-up');
-    }
-    
-    // Update the last scroll position
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
-});
-    </script>
+    <script src="main.js"></script>
   </body>
 </html>

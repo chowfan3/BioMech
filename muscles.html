@@ -6,15 +6,15 @@
     <title>How Muscles Work | BioMech</title>
     <link rel="stylesheet" href="/style.css" />
     
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/",
-                "@tweenjs/tween.js": "https://unpkg.com/@tweenjs/tween.js@23.1.1/dist/tween.esm.js"
-            }
+   <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/",
+            "gsap": "https://unpkg.com/gsap@3.12.5/index.js"
         }
-    </script>
+    }
+</script>
 
     <style>
         #sarcomere-container { 
@@ -102,13 +102,20 @@
         <section class="interactive-3d-section">
             <h3>Interactive Sarcomere Model</h3>
             <p>Click each part to learn more.</p>
-            <div id="sarcomere-container">
+            <div class="animation-controls" style="text-align: center; margin-bottom: 1rem;">
+                <button id="contractBtn" class="cta-button">Contract</button>
+                <button id="relaxBtn" class="cta-button" disabled>Relax</button>
             </div>
+            <div id="sarcomere-container"></div>
         </section>
 
         <section class="key-terms-section">
             <h2>Key Terms</h2>
-            <div class="key-terms-grid"><div class="key-term-card"><h4>Actin</h4><p>A protein that forms the thin, rope-like filaments in muscle fibers.</p></div><div class="key-term-card"><h4>Myosin</h4><p>A motor protein that forms the thick filaments, featuring "heads" that pull the actin filaments.</p></div><div class="key-term-card"><h4>Sarcomere</h4><p>The basic contractile unit of a muscle fiber, composed of overlapping actin and myosin filaments.</p></div></div>
+            <div class="key-terms-grid">
+                <div class="key-term-card"><h4>Actin</h4><p>A protein that forms the thin, rope-like filaments in muscle fibers.</p></div>
+                <div class="key-term-card"><h4>Myosin</h4><p>A motor protein that forms the thick filaments, featuring "heads" that pull the actin filaments.</p></div>
+                <div class="key-term-card"><h4>Sarcomere</h4><p>The basic contractile unit of a muscle fiber, composed of overlapping actin and myosin filaments.</p></div>
+            </div>
         </section>
 
         <section class="quiz-section">
@@ -117,7 +124,7 @@
               <div class="quiz-question"><p>1. According to the sliding filament theory, which two protein filaments slide past one another to cause muscle contraction?</p><label><input type="radio" name="q1" value="collagen-elastin"> Collagen and Elastin</label><label><input type="radio" name="q1" value="actin-myosin"> Actin and Myosin</label><label><input type="radio" name="q1" value="keratin-fibrin"> Keratin and Fibrin</label></div>
               <div class="quiz-question"><p>2. What is the name of the basic contractile unit of a muscle fiber?</p><label><input type="radio" name="q2" value="neuron"> Neuron</label><label><input type="radio" name="q2" value="tendon"> Tendon</label><label><input type="radio" name="q2" value="sarcomere"> Sarcomere</label></div>
               <div class="quiz-question"><p>3. What molecule provides the energy for the myosin heads to pull the actin filaments?</p><label><input type="radio" name="q3" value="atp"> ATP (Adenosine Triphosphate)</label><label><input type="radio" name="q3" value="dna"> DNA</label><label><input type="radio" name="q3" value="glucose"> Glucose</label></div>
-              <button type="submit" class="button">Submit Answers</button>
+              <button class="cta-button">Submit Answers</button>
             </form>
             <div id="quiz-results"></div>
         </section>
@@ -138,190 +145,6 @@
         <p>BioMech is a passion project by a future Bioengineering major. It deconstructs elite athletes not just as players, but as high-performance biological systems, exploring how principles of mechanical engineering, materials science, and biotechnology are applied to push the boundaries of human potential.</p><p class="copyright">© 2025 BioMech</p>
     </footer>
 
-    <script type="module">
-    import * as THREE from 'three';
-    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-    import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
-    import * as TWEEN from '@tweenjs/tween.js';
-
-    const partInfo = {
-        'myosin': { title: 'Myosin Filament (Body)', description: 'The main body of the thick filament, which provides the structural core that the myosin heads attach to.' },
-        'myosin_head': { title: 'Myosin Head', description: 'This is the motor part of the myosin. It binds to actin and uses energy from ATP to pivot, pulling the thin filament inward to cause contraction.' },
-        'actin1': { title: 'Actin Filament', description: 'Actin forms the "track" of the thin filament. It provides the binding sites for the myosin heads to attach to during muscle contraction.' },
-        'actin2': { title: 'Actin Filament', description: 'Actin forms the "track" of the thin filament. It provides the binding sites for the myosin heads to attach to during muscle contraction.' },
-        'tropomyosin': { title: 'Tropomyosin', description: 'This regulatory protein is a long strand that wraps around the actin filament, covering the myosin-binding sites when the muscle is in a relaxed state.' },
-
-    };
-
-    const container = document.getElementById('sarcomere-container'); 
-    if (container) {
-        const scene = new THREE.Scene();
-        // --- UPDATED: A darker, more neutral background color ---
-        scene.background = new THREE.Color(0x333333); 
-
-        const camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 100);
-        // --- UPDATED: Camera is zoomed in even more ---
-        camera.position.set(0, 0, 1.25);
-        
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        container.appendChild(renderer.domElement);
-
-        const composer = new EffectComposer(renderer);
-        composer.addPass(new RenderPass(scene, camera));
-
-        const outlinePass = new OutlinePass(new THREE.Vector2(container.clientWidth, container.clientHeight), scene, camera);
-        outlinePass.edgeStrength = 5;
-        outlinePass.edgeGlow = 0.5;
-        outlinePass.edgeThickness = 1.5;
-        // --- UPDATED: Outline is white again for contrast on the dark background ---
-        outlinePass.visibleEdgeColor.set('#ffffff'); 
-        composer.addPass(outlinePass);
-        
-        const controls = new OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
-        // --- UPDATED: Target is shifted to the right to visually center the model ---
-        controls.target.set(0, 0, 0); 
-        
-       // --- UPDATED: Lighting is brighter ---
-        // CHANGED: Increased ambient light from 0.9 to 1.5 for better overall brightness.
-        scene.add(new THREE.AmbientLight(0xffffff, 1.5)); 
-        
-        // CHANGED: Increased directional light from 1.5 to 2.5 for stronger highlights.
-        const dirLight = new THREE.DirectionalLight(0xffffff, 2.5); 
-        dirLight.position.set(5, 10, 7.5);
-        scene.add(dirLight);
-
-        const raycaster = new THREE.Raycaster();
-        const pointer = new THREE.Vector2();
-        let wholeModel = new THREE.Group();
-
-        const gltfLoader = new GLTFLoader();
-        gltfLoader.load('sarcomere_model.glb', (gltf) => {
-            wholeModel = gltf.scene;
-            scene.add(wholeModel);
-        });
-        
-        const infoBox = document.getElementById('info-box');
-        const infoTitle = document.getElementById('info-title');
-        const infoDescription = document.getElementById('info-description');
-
-        window.addEventListener('scroll', () => {
-            if (infoBox.style.display !== 'none') {
-                infoBox.style.display = 'none';
-            }
-        });
-
-        container.addEventListener('pointermove', (e) => {
-            const rect = container.getBoundingClientRect();
-            pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-            pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-        });
-
-        container.addEventListener('click', (event) => {
-            if (outlinePass.selectedObjects.length > 0) {
-                const selectedObject = outlinePass.selectedObjects[0];
-                const data = partInfo[selectedObject.name];
-                
-                if (data) {
-                    infoTitle.innerText = data.title;
-                    infoDescription.innerText = data.description;
-                    
-                    const popUpHeight = infoBox.offsetHeight;
-                    const popUpWidth = infoBox.offsetWidth;
-                    let top = event.clientY + 20;
-                    let left = event.clientX - (popUpWidth / 2);
-
-                    if (top + popUpHeight > window.innerHeight) {
-                        top = event.clientY - popUpHeight - 20;
-                        infoBox.className = 'info-box-top';
-                    } else {
-                        infoBox.className = 'info-box-bottom';
-                    }
-                    
-                    infoBox.style.top = `${top}px`;
-                    infoBox.style.left = `${left}px`;
-                    infoBox.style.display = 'block';
-                }
-            } else {
-                infoBox.style.display = 'none';
-            }
-        });
-        
-       const quizForm = document.getElementById('muscles-quiz');
-        const resultsDiv = document.getElementById('quiz-results');
-
-        if (quizForm) {
-            quizForm.addEventListener('submit', (event) => {
-                event.preventDefault();
-
-                const correctAnswers = { q1: 'actin-myosin', q2: 'sarcomere', q3: 'atp' };
-                let score = 0;
-                const totalQuestions = Object.keys(correctAnswers).length;
-                const formData = new FormData(quizForm);
-
-                for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
-                    if (formData.get(question) === correctAnswer) {
-                        score++;
-                    }
-                }
-
-                // CHANGED: This section now matches the genetics page functionality
-                resultsDiv.innerHTML = `You scored ${score} out of ${totalQuestions}!`;
-                resultsDiv.style.display = 'block';
-                resultsDiv.className = (score === totalQuestions) ? 'correct' : 'incorrect';
-            });
-        }
-
-        function animate(time) {
-            requestAnimationFrame(animate);
-
-            raycaster.setFromCamera(pointer, camera);
-            const intersects = raycaster.intersectObjects(wholeModel.children, true);
-            if (intersects.length > 0) {
-                outlinePass.selectedObjects = [intersects[0].object];
-            } else {
-                outlinePass.selectedObjects = [];
-            }
-            
-            controls.update();
-            TWEEN.update(time);
-            composer.render();
-        }
-        animate();
-
-        new ResizeObserver(() => {
-            const { clientWidth, clientHeight } = container;
-            camera.aspect = clientWidth / clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(clientWidth, clientHeight);
-            composer.setSize(clientWidth, clientHeight);
-        }).observe(container);
-    }
-    // --- Auto-Hiding Navigation Bar on Scroll ---
-let lastScrollTop = 0;
-const navBar = document.querySelector('nav');
-
-window.addEventListener('scroll', function() {
-    // Get the current scroll position
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
-        // Scrolling Down
-        navBar.classList.add('nav-up');
-    } else {
-        // Scrolling Up
-        navBar.classList.remove('nav-up');
-    }
-    
-    // Update the last scroll position
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
-});
-</script>
-
+    <script type="module" src="sarcomere-viewer.js"></script>
   </body>
 </html>
